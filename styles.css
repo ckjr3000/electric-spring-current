@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: radial-gradient(circle, #74b0ce 70%, #201f1e);
+  background-image: radial-gradient(circle, #11a6f0 50%, #eeedac);
   background-blend-mode: screen;
   background-size: cover;
   background-repeat: no-repeat;
@@ -27,16 +27,12 @@ h4 {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
   color: #fab804;
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
   margin: 10px 20px;
   text-align: center;
-}
-
-#main-title {
-  font-size: 100px;
 }
 
 h2 {
@@ -51,6 +47,41 @@ p,
 a,
 li {
   font-family: "Chivo", sans-serif;
+}
+
+nav > ul {
+  list-style-type: none;
+}
+
+nav {
+  border-bottom: 2px solid black;
+  margin: 0;
+}
+
+nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 50px;
+}
+
+nav > ul > li {
+  padding: 0 20px;
+}
+
+a:hover {
+  cursor: pointer;
+  background-image: radial-gradient(
+    circle,
+    rgb(236, 180, 96) 30%,
+    rgba(190, 143, 73, 0)
+  );
+}
+
+nav > ul > li > a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #141415;
 }
 
 a:hover {
@@ -98,7 +129,7 @@ main > a {
   max-width: 40vw;
   padding: 25px;
   margin: 15px;
-  border-radius: 15px;
+  border: 2px solid black;
 }
 
 .waiting-info {

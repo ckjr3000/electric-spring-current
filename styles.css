@@ -104,6 +104,18 @@ main > a {
   color: #050558;
 }
 
+.event {
+  background-color: white;
+  max-width: 40vw;
+  padding: 25px;
+  margin: 15px;
+  border-radius: 15px;
+}
+
+.waiting-info {
+  color: red;
+}
+
 @media (max-width: 1161px) {
   main {
     width: 60vw;

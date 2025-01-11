@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: radial-gradient(circle, #4997be 10%, #e6e8ef);
+  background-image: radial-gradient(circle, #74b0ce 70%, #201f1e);
   background-blend-mode: screen;
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,7 +19,9 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4 {
   font-family: "Exo 2", sans-serif;
   font-style: italic;
 }
@@ -41,30 +43,14 @@ h2 {
   font-size: 40px;
 }
 
+p {
+  text-wrap: balance;
+}
+
 p,
 a,
 li {
   font-family: "Chivo", sans-serif;
-}
-
-nav > ul {
-  list-style-type: none;
-}
-
-nav {
-  border-bottom: 2px solid black;
-  margin: 0;
-}
-
-nav > ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0 50px;
-}
-
-nav > ul > li {
-  padding: 0 20px;
 }
 
 a:hover {
@@ -76,9 +62,8 @@ a:hover {
   );
 }
 
-nav > ul > li > a {
+a {
   text-transform: uppercase;
-  text-decoration: none;
   color: #141415;
 }
 
@@ -104,8 +89,12 @@ main > a {
   color: #050558;
 }
 
+#intro {
+  max-width: 40vw;
+}
+
 .event {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   max-width: 40vw;
   padding: 25px;
   margin: 15px;

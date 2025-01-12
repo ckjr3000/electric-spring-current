@@ -18,6 +18,7 @@
 /* Visual styles */
 .accordion {
   overflow: hidden;
+  margin-bottom: 5%;
 }
 
 .tab__label,

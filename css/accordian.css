@@ -1,0 +1,65 @@
+/* Core styles/functionality */
+
+.tab input {
+  opacity: 0;
+  z-index: -1;
+}
+
+.tab__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.35s;
+}
+
+.tab input:checked ~ .tab__content {
+  max-height: 100rem;
+}
+
+/* Visual styles */
+.accordion {
+  overflow: hidden;
+}
+
+.tab__label,
+.tab__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tab__label::after {
+  content: "\276F";
+  font-size: 40px;
+  padding: 10px;
+  margin-left: 10px;
+  transform: rotate(90deg);
+  transition: all 0.35s;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.tab input:checked + .tab__label::after {
+  transform: rotate(270deg);
+}
+.tab__content p {
+  margin: 0;
+  padding: 10px;
+}
+.tab__close {
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+/* Arrow animation */
+.tab input:not(:checked) + .tab__label:hover::after {
+  animation: rotate 0.5s infinite;
+}
+@keyframes rotate {
+  25% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(90deg);
+  }
+}

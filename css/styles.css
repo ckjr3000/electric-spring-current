@@ -99,7 +99,7 @@ main {
 }
 
 main > ul {
-  list-style-image: url(./assets/es-bullet.png);
+  list-style-image: url(../assets/es-bullet.png);
 }
 
 main > ul > li {
@@ -151,6 +151,10 @@ main > a {
   display: block;
   border-radius: 100px;
   margin: 5px;
+}
+
+.free-event {
+  background-color: white;
 }
 
 @media (max-width: 1381px) {

@@ -11,7 +11,6 @@ body {
   background-blend-mode: screen;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   overflow: auto;
   margin: 0;
   padding: 0;
@@ -154,80 +153,47 @@ main > a {
   margin: 5px;
 }
 
-@media (max-width: 1161px) {
-  main {
-    width: 60vw;
+@media (max-width: 1381px) {
+  .lrg-sceen-only {
+    display: none;
+  }
+
+  #festival-dates {
+    font-size: 40px;
+  }
+
+  #intro,
+  .event {
+    max-width: 60vw;
   }
 }
 
-@media (max-width: 1161px) {
-  #main-title {
-    font-size: 90px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  main > a {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 1039px) {
-  #main-title {
-    font-size: 80px;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-}
-
-@media (max-width: 965px) {
-  #main-title {
-    width: 40vw;
-  }
-}
-
-@media (max-width: 747px) {
-  #main-title {
-    width: 50vw;
-  }
-
-  main {
-    width: 70vw;
-  }
-}
-
-@media (max-width: 575px) {
-  #main-title {
-    font-size: 70px;
-  }
-}
-
-@media (max-width: 525px) {
-  #main-title {
-    width: 60vw;
-  }
-}
-
-@media (max-width: 437px) {
-  #main-title {
-    width: 70vw;
-  }
-
-  main {
-    width: 80vw;
-  }
-}
-
-@media (max-width: 375px) {
+@media (max-width: 985px) {
   #main-title {
     font-size: 60px;
   }
 
-  h2 {
-    font-size: 20px;
+  #intro,
+  .event {
+    max-width: 80vw;
+  }
+}
+
+@media (max-width: 851px) {
+  #main-title {
+    font-size: 50px;
+  }
+
+  #festival-dates {
+    font-size: 30px;
+  }
+
+  #intro,
+  .event {
+    max-width: 80vw;
+  }
+
+  .event-row {
+    flex-direction: column;
   }
 }

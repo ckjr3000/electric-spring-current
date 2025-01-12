@@ -1,19 +1,18 @@
 /* Core styles/functionality */
-.tab {
-  position: relative;
-}
+
 .tab input {
-  position: absolute;
   opacity: 0;
   z-index: -1;
 }
+
 .tab__content {
   max-height: 0;
   overflow: hidden;
   transition: all 0.35s;
 }
+
 .tab input:checked ~ .tab__content {
-  max-height: 10rem;
+  max-height: 100rem;
 }
 
 /* Visual styles */
@@ -24,7 +23,8 @@
 .tab__label,
 .tab__close {
   display: flex;
-  align-items: center; /* Align the text and chevron vertically */
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -44,7 +44,7 @@
 }
 .tab__content p {
   margin: 0;
-  padding: 1rem;
+  padding: 10px;
 }
 .tab__close {
   justify-content: flex-end;
@@ -53,13 +53,13 @@
 }
 /* Arrow animation */
 .tab input:not(:checked) + .tab__label:hover::after {
-  animation: bounce 0.5s infinite;
+  animation: rotate 0.5s infinite;
 }
-@keyframes bounce {
+@keyframes rotate {
   25% {
-    transform: rotate(90deg) translate(0.25rem);
+    transform: rotate(90deg);
   }
   75% {
-    transform: rotate(90deg) translate(-0.25rem);
+    transform: rotate(90deg);
   }
 }

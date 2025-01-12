@@ -16,6 +16,7 @@ body {
   margin: 0;
   padding: 0;
   color: #141415;
+  overflow-y: scroll;
 }
 
 h1,
@@ -71,26 +72,13 @@ nav > ul > li {
 
 a:hover {
   cursor: pointer;
-  background-image: radial-gradient(
-    circle,
-    rgb(236, 180, 96) 30%,
-    rgba(190, 143, 73, 0)
-  );
+  color: white;
 }
 
 nav > ul > li > a {
   text-transform: uppercase;
   text-decoration: none;
   color: #141415;
-}
-
-a:hover {
-  cursor: pointer;
-  background-image: radial-gradient(
-    circle,
-    rgb(236, 180, 96) 30%,
-    rgba(190, 143, 73, 0)
-  );
 }
 
 a {

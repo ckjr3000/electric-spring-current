@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: radial-gradient(circle, #11a6f0 50%, #eeedac);
+  background-image: radial-gradient(circle, #2c94c8 50%, #dcdb99);
   background-blend-mode: screen;
   background-size: cover;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@ h4 {
 
 h1 {
   font-size: 70px;
-  color: #fab804;
+  color: #cd9c15;
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
   text-align: center;
@@ -75,7 +75,7 @@ nav > ul > li {
 
 a:hover {
   cursor: pointer;
-  color: rgb(241, 75, 75);
+  color: rgb(208, 106, 106);
 }
 
 nav > ul > li > a {

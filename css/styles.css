@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: radial-gradient(circle, #2c94c8 50%, #dcdb99);
+  background-image: radial-gradient(circle, #2c94c8 50%, #ffffff);
   background-blend-mode: screen;
   background-size: cover;
   background-repeat: no-repeat;
@@ -73,10 +73,6 @@ nav > ul > li {
   padding: 0 20px;
 }
 
-a:hover {
-  cursor: pointer;
-  color: rgb(208, 106, 106);
-}
 
 nav > ul > li > a {
   text-transform: uppercase;
@@ -84,9 +80,18 @@ nav > ul > li > a {
   color: #141415;
 }
 
+nav > ul > li > a:hover {
+  color: rgb(255, 255, 255);
+}
+
 a {
   text-transform: uppercase;
   color: #141415;
+}
+
+a:hover {
+  cursor: pointer;
+  color: rgb(208, 106, 106);
 }
 
 main {
@@ -104,11 +109,6 @@ main > ul {
 
 main > ul > li {
   margin-bottom: 10px;
-}
-
-main > a {
-  font-size: 20px;
-  color: #050558;
 }
 
 #intro {
@@ -157,6 +157,11 @@ main > a {
   background-color: white;
 }
 
+footer img {
+  max-height: 80px;
+  margin: 10px;
+}
+
 @media (max-width: 1381px) {
   .lrg-sceen-only {
     display: none;
@@ -180,6 +185,10 @@ main > a {
   #intro,
   .event {
     max-width: 80vw;
+  }
+
+  footer img {
+    max-height: 60px;
   }
 }
 
@@ -241,6 +250,12 @@ main > a {
   .venue-section > iframe {
     width: 400px;
     height: 300px;
+  }
+}
+
+@media (max-width: 453px){
+  footer img {
+    max-height: 40px;
   }
 }
 

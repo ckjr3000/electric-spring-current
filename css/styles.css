@@ -99,7 +99,7 @@ a {
 
 a:hover {
   cursor: pointer;
-  color: rgb(208, 106, 106);
+  text-decoration: underline;
 }
 
 main {

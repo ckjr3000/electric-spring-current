@@ -89,7 +89,8 @@ nav > ul > li > a {
 }
 
 nav > ul > li > a:hover {
-  color: rgb(255, 255, 255);
+  color: black;
+  text-decoration: underline;
 }
 
 a {
@@ -99,7 +100,7 @@ a {
 
 a:hover {
   cursor: pointer;
-  text-decoration: underline;
+  color: rgb(208, 106, 106);
 }
 
 main {
@@ -163,6 +164,12 @@ footer {
 footer img {
   max-height: 5em; /* 80px */
   margin: 0.625em; /* 10px */
+}
+
+footer a {
+  text-transform: none;
+  text-decoration: underline;
+
 }
 
 @media (max-width: 1381px) {

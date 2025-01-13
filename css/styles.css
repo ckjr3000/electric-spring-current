@@ -156,10 +156,6 @@ main > ul > li {
   margin: 0.3125em; /* 5px */
 }
 
-.free-event {
-  background-color: white;
-}
-
 footer {
   padding: 1em;
 }
@@ -216,6 +212,13 @@ footer img {
   .event-row {
     flex-direction: column;
   }
+}
+
+.free-event {
+  display: inline-block;
+  font-weight: bold;
+  background-color: rgb(208, 106, 106);
+  font-size: larger;
 }
 
 /* venues page styles */

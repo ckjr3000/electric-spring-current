@@ -34,6 +34,7 @@ h1 {
   text-align: center;
 }
 
+
 h2 {
   font-size: 1.5625em; /* 25px */
 }
@@ -42,9 +43,17 @@ h2 {
   font-size: 3.125em; /* 50px */
 }
 
+#intro {
+  max-width: 45vw;
+  background-image: radial-gradient(circle, #eeedac 20%, transparent 100%);
+  padding: 3em;
+}
+
+
 p {
   text-wrap: balance;
   line-height: 1.5;
+  padding: 0.5em;
 }
 
 p,
@@ -110,11 +119,6 @@ main > ul > li {
   margin-bottom: 0.625em; /* 10px */
 }
 
-#intro {
-  max-width: 45vw;
-  background-image: radial-gradient(circle, #eeedac 20%, transparent 100%);
-}
-
 .accordian-head {
   background-image: radial-gradient(circle, #eeedac 5%, transparent 100%);
 }
@@ -154,6 +158,10 @@ main > ul > li {
 
 .free-event {
   background-color: white;
+}
+
+footer {
+  padding: 1em;
 }
 
 footer img {
@@ -215,7 +223,8 @@ footer img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1.25em; /* 20px */
+  justify-content: center;
+  margin: 0 0.5em 0.5em 1.25em; /* 20px */
 }
 
 .venue-section > iframe {
@@ -252,15 +261,20 @@ footer img {
   }
 }
 
-@media (max-width: 453px){
-  footer img {
-    max-height: 2.5em; /* 40px */
+@media (max-width: 490px) {
+  .venue-section {
+    max-width: 90vw;
+  }
+  .venue-section > iframe {
+    width: 80vw;
+    height: 60vw;
   }
 }
 
-@media (max-width: 417px) {
-  .venue-section > iframe {
-    width: 21.875em; /* 350px */
-    height: 18.75em; /* 300px */
+
+@media (max-width: 453px){
+  footer img {
+    max-height: 30px; 
   }
 }
+

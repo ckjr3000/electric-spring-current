@@ -64,3 +64,9 @@
     transform: rotate(90deg);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .tab input:not(:checked) + .tab__label:hover::after {
+    animation: none;
+  }
+}

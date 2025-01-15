@@ -54,7 +54,7 @@
 }
 /* Arrow animation */
 .tab input:not(:checked) + .tab__label:hover::after {
-  animation: rotate 0.5s infinite;
+  animation: rotate 0.5s;
 }
 @keyframes rotate {
   25% {
@@ -62,5 +62,11 @@
   }
   75% {
     transform: rotate(90deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab input:not(:checked) + .tab__label:hover::after {
+    animation: none;
   }
 }

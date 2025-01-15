@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: radial-gradient(circle, #11a6f0 50%, #eeedac);
+  background-image: radial-gradient(circle, #2c94c8 50%, #ffffff);
   background-blend-mode: screen;
   background-size: cover;
   background-repeat: no-repeat;
@@ -27,24 +27,33 @@ h4 {
 }
 
 h1 {
-  font-size: 70px;
-  color: #fab804;
+  font-size: 4.375em; /* 70px */
+  color: #cd9c15;
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
   text-align: center;
 }
 
+
 h2 {
-  font-size: 25px;
+  font-size: 1.5625em; /* 25px */
 }
 
 #festival-dates {
-  font-size: 50px;
+  font-size: 3.125em; /* 50px */
 }
+
+#intro {
+  max-width: 45vw;
+  background-image: radial-gradient(circle, #eeedac 20%, transparent 100%);
+  padding: 3em;
+}
+
 
 p {
   text-wrap: balance;
   line-height: 1.5;
+  padding: 0.5em;
 }
 
 p,
@@ -66,16 +75,11 @@ nav > ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 0 50px;
+  padding: 0 3.125em; /* 50px */
 }
 
 nav > ul > li {
-  padding: 0 20px;
-}
-
-a:hover {
-  cursor: pointer;
-  color: rgb(241, 75, 75);
+  padding: 0 1.25em; /* 20px */
 }
 
 nav > ul > li > a {
@@ -84,9 +88,19 @@ nav > ul > li > a {
   color: #141415;
 }
 
+nav > ul > li > a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
 a {
   text-transform: uppercase;
   color: #141415;
+}
+
+a:hover {
+  cursor: pointer;
+  color: rgb(208, 106, 106);
 }
 
 main {
@@ -103,17 +117,7 @@ main > ul {
 }
 
 main > ul > li {
-  margin-bottom: 10px;
-}
-
-main > a {
-  font-size: 20px;
-  color: #050558;
-}
-
-#intro {
-  max-width: 45vw;
-  background-image: radial-gradient(circle, #eeedac 20%, transparent 100%);
+  margin-bottom: 0.625em; /* 10px */
 }
 
 .accordian-head {
@@ -123,8 +127,8 @@ main > a {
 .event {
   background-color: rgba(255, 255, 255, 0.8);
   max-width: 45vw;
-  padding: 25px;
-  margin: 15px;
+  padding: 1.5625em; /* 25px */
+  margin: 0.9375em; /* 15px */
   border: 2px solid black;
 }
 
@@ -133,7 +137,7 @@ main > a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin: 0.625em; /* 10px */
 }
 
 .event-image {
@@ -144,17 +148,28 @@ main > a {
 }
 
 .event-image > img {
-  width: 200px;
-  height: 200px;
+  width: 12.5em; /* 200px */
+  height: 12.5em; /* 200px */
   object-fit: cover;
   object-position: center;
   display: block;
-  border-radius: 100px;
-  margin: 5px;
+  border-radius: 6.25em; /* 100px */
+  margin: 0.3125em; /* 5px */
 }
 
-.free-event {
-  background-color: white;
+footer {
+  padding: 1em;
+}
+
+footer img {
+  max-height: 5em; /* 80px */
+  margin: 0.625em; /* 10px */
+}
+
+footer a {
+  text-transform: none;
+  text-decoration: underline;
+
 }
 
 @media (max-width: 1381px) {
@@ -163,7 +178,7 @@ main > a {
   }
 
   #festival-dates {
-    font-size: 40px;
+    font-size: 2.5em; /* 40px */
   }
 
   #intro,
@@ -174,22 +189,26 @@ main > a {
 
 @media (max-width: 985px) {
   #main-title {
-    font-size: 60px;
+    font-size: 3.75em; /* 60px */
   }
 
   #intro,
   .event {
     max-width: 80vw;
   }
+
+  footer img {
+    max-height: 3.75em; /* 60px */
+  }
 }
 
 @media (max-width: 851px) {
   #main-title {
-    font-size: 50px;
+    font-size: 3.125em; /* 50px */
   }
 
   #festival-dates {
-    font-size: 30px;
+    font-size: 1.875em; /* 30px */
   }
 
   #intro,
@@ -202,35 +221,43 @@ main > a {
   }
 }
 
+.free-event {
+  display: inline-block;
+  font-weight: bold;
+  background-color: rgb(106, 208, 108);
+  font-size: larger;
+}
+
 /* venues page styles */
 .venue-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin: 0 0.5em 0.5em 1.25em; /* 20px */
 }
 
 .venue-section > iframe {
   justify-content: center;
-  width: 800px;
-  height: 500px;
+  width: 50em; /* 800px */
+  height: 31.25em; /* 500px */
 }
 
 .venue-section > p {
-  margin: 8px;
+  margin: 0.5em; /* 8px */
 }
 
 @media (max-width: 845px) {
   .venue-section > iframe {
-    width: 600px;
-    height: 400px;
+    width: 37.5em; /* 600px */
+    height: 25em; /* 400px */
   }
 }
 
 @media (max-width: 641px) {
   .venue-section > iframe {
-    width: 500px;
-    height: 350px;
+    width: 31.25em; /* 500px */
+    height: 21.875em; /* 350px */
   }
 }
 
@@ -239,14 +266,25 @@ main > a {
     max-width: 80vw;
   }
   .venue-section > iframe {
-    width: 400px;
-    height: 300px;
+    width: 25em; /* 400px */
+    height: 18.75em; /* 300px */
   }
 }
 
-@media (max-width: 417px) {
+@media (max-width: 490px) {
+  .venue-section {
+    max-width: 90vw;
+  }
   .venue-section > iframe {
-    width: 350px;
-    height: 300px;
+    width: 80vw;
+    height: 60vw;
   }
 }
+
+
+@media (max-width: 453px){
+  footer img {
+    max-height: 30px; 
+  }
+}
+

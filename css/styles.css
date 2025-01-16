@@ -34,7 +34,6 @@ h1 {
   text-align: center;
 }
 
-
 h2 {
   font-size: 1.5625em; /* 25px */
 }
@@ -48,7 +47,6 @@ h2 {
   background-image: radial-gradient(circle, #eeedac 20%, transparent 100%);
   padding: 3em;
 }
-
 
 p {
   text-wrap: balance;
@@ -162,14 +160,13 @@ footer {
 }
 
 footer img {
-  max-height: 5em; /* 80px */
+  max-height: 4em; /* 80px */
   margin: 0.625em; /* 10px */
 }
 
 footer a {
   text-transform: none;
   text-decoration: underline;
-
 }
 
 @media (max-width: 1381px) {
@@ -281,10 +278,8 @@ footer a {
   }
 }
 
-
-@media (max-width: 453px){
+@media (max-width: 453px) {
   footer img {
-    max-height: 30px; 
+    max-height: 30px;
   }
 }
-

@@ -7,7 +7,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: radial-gradient(circle, #2c94c8 50%, #ffffff);
   background-blend-mode: screen;
   background-size: cover;
   background-repeat: no-repeat;
@@ -27,16 +26,14 @@ h4 {
 }
 
 h1 {
-  font-size: 4.375em; /* 70px */
-  color: #cd9c15;
-  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
-    -1px -1px 0 #000;
+  font-size: 4.375em; 
+  color: black;
   text-align: center;
   margin: 0;
 }
 
 h2 {
-  font-size: 1.5625em; /* 25px */
+  font-size: 1.5625em;
 }
 
 #subheading {
@@ -45,7 +42,6 @@ h2 {
 
 #intro {
   max-width: 45vw;
-  background-image: radial-gradient(circle, #eeedac 20%, transparent 100%);
   padding: 3em;
 }
 
@@ -74,11 +70,11 @@ nav > ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 0 3.125em; /* 50px */
+  padding: 0 3.125em; 
 }
 
 nav > ul > li {
-  padding: 0 1.25em; /* 20px */
+  padding: 0 1.25em; 
 }
 
 nav > ul > li > a {
@@ -99,7 +95,6 @@ a {
 
 a:hover {
   cursor: pointer;
-  color: rgb(208, 106, 106);
 }
 
 main {
@@ -116,18 +111,17 @@ main > ul {
 }
 
 main > ul > li {
-  margin-bottom: 0.625em; /* 10px */
+  margin-bottom: 0.625em; 
 }
 
 .accordian-head {
-  background-image: radial-gradient(circle, #eeedac 5%, transparent 100%);
+  background-image: radial-gradient(circle, #acc6ee 5%, transparent 100%);
 }
 
 .event {
-  background-color: rgba(255, 255, 255, 0.8);
   max-width: 45vw;
-  padding: 1.5625em; /* 25px */
-  margin: 0.9375em; /* 15px */
+  padding: 1.5625em; 
+  margin: 0.9375em;
   border: 2px solid black;
 }
 
@@ -136,7 +130,7 @@ main > ul > li {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 0.625em; /* 10px */
+  margin: 0.625em; 
 }
 
 .event-image {
@@ -147,13 +141,13 @@ main > ul > li {
 }
 
 .event-image > img {
-  width: 12.5em; /* 200px */
-  height: 12.5em; /* 200px */
+  width: 12.5em; 
+  height: 12.5em; 
   object-fit: cover;
   object-position: center;
   display: block;
-  border-radius: 6.25em; /* 100px */
-  margin: 0.3125em; /* 5px */
+  border-radius: 6.25em; 
+  margin: 0.3125em; 
 }
 
 footer {
@@ -161,8 +155,8 @@ footer {
 }
 
 footer img {
-  max-height: 4em; /* 80px */
-  margin: 0.625em; /* 10px */
+  max-height: 4em; 
+  margin: 0.625em;
 }
 
 footer a {
@@ -176,7 +170,7 @@ footer a {
   }
 
   #subheading {
-    font-size: 2.5em; /* 40px */
+    font-size: 2.5em;
   }
 
   #intro,
@@ -187,7 +181,7 @@ footer a {
 
 @media (max-width: 985px) {
   #main-title {
-    font-size: 3.75em; /* 60px */
+    font-size: 3.75em; 
   }
 
   #intro,
@@ -196,17 +190,17 @@ footer a {
   }
 
   footer img {
-    max-height: 3.75em; /* 60px */
+    max-height: 3.75em; 
   }
 }
 
 @media (max-width: 851px) {
   #main-title {
-    font-size: 3.125em; /* 50px */
+    font-size: 3.125em; 
   }
 
   #subheading {
-    font-size: 1.875em; /* 30px */
+    font-size: 1.875em; 
   }
 
   #intro,
@@ -222,7 +216,6 @@ footer a {
 .free-event {
   display: inline-block;
   font-weight: bold;
-  background-color: rgb(106, 208, 108);
   font-size: larger;
 }
 
@@ -232,30 +225,30 @@ footer a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 0.5em 0.5em 1.25em; /* 20px */
+  margin: 0 0.5em 0.5em 1.25em; 
 }
 
 .venue-section > iframe {
   justify-content: center;
-  width: 50em; /* 800px */
-  height: 31.25em; /* 500px */
+  width: 50em; 
+  height: 31.25em; 
 }
 
 .venue-section > p {
-  margin: 0.5em; /* 8px */
+  margin: 0.5em;
 }
 
 @media (max-width: 845px) {
   .venue-section > iframe {
-    width: 37.5em; /* 600px */
-    height: 25em; /* 400px */
+    width: 37.5em;
+    height: 25em; 
   }
 }
 
 @media (max-width: 641px) {
   .venue-section > iframe {
-    width: 31.25em; /* 500px */
-    height: 21.875em; /* 350px */
+    width: 31.25em;
+    height: 21.875em; 
   }
 }
 
@@ -264,8 +257,8 @@ footer a {
     max-width: 80vw;
   }
   .venue-section > iframe {
-    width: 25em; /* 400px */
-    height: 18.75em; /* 300px */
+    width: 25em; 
+    height: 18.75em; 
   }
 }
 

@@ -1,5 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Chivo:ital,wght@0,100..900;1,100..900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+ @font-face {
+  font-family: "Zoom"; 
+  src: url("../assets/Zoom-3zOM8.ttf"); 
+}
+
+html, body {
+  overflow-y: hidden;
+}
 
 body {
   display: flex;
@@ -7,33 +14,21 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-blend-mode: screen;
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
-  margin: 0;
-  padding: 0;
   color: #141415;
-  overflow-y: scroll;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Exo 2", sans-serif;
-  font-style: italic;
+  height: 100vh;
 }
 
 h1 {
-  font-size: 4.375em; 
-  color: black;
+  font-family: "Zoom", sans-serif;
+  font-style: italic;
+  font-size: 5em; 
+  color: blue;
   text-align: center;
-  margin: 0;
 }
 
 h2 {
   font-size: 1.5625em;
+  text-align: center;
 }
 
 #subheading {
@@ -48,13 +43,7 @@ h2 {
 p {
   text-wrap: balance;
   line-height: 1.5;
-  padding: 0.5em;
-}
-
-p,
-a,
-li {
-  font-family: "Chivo", sans-serif;
+  text-align: center;
 }
 
 nav > ul {

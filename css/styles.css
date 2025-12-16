@@ -1,268 +1,143 @@
 @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Chivo:ital,wght@0,100..900;1,100..900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
- @font-face {
+
+@font-face {
   font-family: "Zoom"; 
   src: url("../assets/Zoom-3zOM8.ttf"); 
 }
 
 html, body {
-  overflow-y: hidden;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #141415;
+  display: block;
+  color: #000000;
   height: 100vh;
-}
-
-h1 {
-  font-family: "Zoom", sans-serif;
-  font-style: italic;
-  font-size: 5em; 
-  color: blue;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.5625em;
-  text-align: center;
-}
-
-#subheading {
-  font-size: 3em;
-}
-
-#intro {
-  max-width: 45vw;
-  padding: 3em;
-}
-
-p {
-  text-wrap: balance;
-  line-height: 1.5;
-  text-align: center;
-}
-
-nav > ul {
-  list-style-type: none;
-}
-
-nav {
-  border-bottom: 2px solid black;
+  width: 100vw;
+  transition: background 2s ease;
+  position: relative;
   margin: 0;
-}
-
-nav > ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0 3.125em; 
-}
-
-nav > ul > li {
-  padding: 0 1.25em; 
-}
-
-nav > ul > li > a {
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #141415;
-}
-
-nav > ul > li > a:hover {
-  color: black;
-  text-decoration: underline;
-}
-
-a {
-  text-transform: uppercase;
-  color: #141415;
-}
-
-a:hover {
-  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
 }
 
 main {
-  width: 90vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: left;
-  text-align: left;
-}
-
-main > ul {
-  list-style-image: url(../assets/es-bullet.png);
-}
-
-main > ul > li {
-  margin-bottom: 0.625em; 
-}
-
-.accordian-head {
-  background-image: radial-gradient(circle, #acc6ee 5%, transparent 100%);
-}
-
-.event {
-  max-width: 45vw;
-  padding: 1.5625em; 
-  margin: 0.9375em;
-  border: 2px solid black;
-}
-
-.event-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 0.625em; 
-}
-
-.event-image {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.event-image > img {
-  width: 12.5em; 
-  height: 12.5em; 
-  object-fit: cover;
-  object-position: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
   display: block;
-  border-radius: 6.25em; 
-  margin: 0.3125em; 
 }
 
-footer {
-  padding: 1em;
+#ascii-output {
+  font-family: "Courier New", "Courier", monospace;
+  font-size: 0.55em;
+  line-height: 1.0;
+  white-space: pre;
+  color: #000000;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: visible;
+  font-weight: 600;
+  text-shadow: 0 0 1px rgba(0,0,0,0.2);
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
-footer img {
-  max-height: 4em; 
-  margin: 0.625em;
-}
-
-footer a {
-  text-transform: none;
-  text-decoration: underline;
-}
-
-@media (max-width: 1381px) {
-  .lrg-sceen-only {
-    display: none;
-  }
-
-  #subheading {
-    font-size: 2.5em;
-  }
-
-  #intro,
-  .event {
-    max-width: 60vw;
-  }
-}
-
-@media (max-width: 985px) {
-  #main-title {
-    font-size: 3.75em; 
-  }
-
-  #intro,
-  .event {
-    max-width: 80vw;
-  }
-
-  footer img {
-    max-height: 3.75em; 
-  }
-}
-
-@media (max-width: 851px) {
-  #main-title {
-    font-size: 3.125em; 
-  }
-
-  #subheading {
-    font-size: 1.875em; 
-  }
-
-  #intro,
-  .event {
-    max-width: 80vw;
-  }
-
-  .event-row {
-    flex-direction: column;
-  }
-}
-
-.free-event {
-  display: inline-block;
-  font-weight: bold;
-  font-size: larger;
-}
-
-/* venues page styles */
-.venue-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Floating date overlay - transparent background with stylized font */
+#date-overlay {
+  position: fixed;
+  font-family: "Exo 2", "Albert Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(255, 0, 0);
+  background-color: rgb(255, 0, 255);
+  padding: 10;
+  z-index: 1000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  letter-spacing: 0.1em;
   justify-content: center;
-  margin: 0 0.5em 0.5em 1.25em; 
 }
 
-.venue-section > iframe {
-  justify-content: center;
-  width: 50em; 
-  height: 31.25em; 
-}
-
-.venue-section > p {
-  margin: 0.5em;
-}
-
-@media (max-width: 845px) {
-  .venue-section > iframe {
-    width: 37.5em;
-    height: 25em; 
+/* Responsive font sizes */
+@media (max-width: 1920px) {
+  #ascii-output {
+    font-size: 0.72em;
   }
 }
 
-@media (max-width: 641px) {
-  .venue-section > iframe {
-    width: 31.25em;
-    height: 21.875em; 
+@media (max-width: 1600px) {
+  #ascii-output {
+    font-size: 0.68em;
+  }
+  #date-overlay {
+    font-size: 1.8rem;
   }
 }
 
-@media (max-width: 521px) {
-  .venue-section > p {
-    max-width: 80vw;
+@media (max-width: 1400px) {
+  #ascii-output {
+    font-size: 0.65em;
   }
-  .venue-section > iframe {
-    width: 25em; 
-    height: 18.75em; 
-  }
-}
-
-@media (max-width: 490px) {
-  .venue-section {
-    max-width: 90vw;
-  }
-  .venue-section > iframe {
-    width: 80vw;
-    height: 60vw;
+  #date-overlay {
+    font-size: 1.6rem;
   }
 }
 
-@media (max-width: 453px) {
-  footer img {
-    max-height: 30px;
+@media (max-width: 1200px) {
+  #ascii-output {
+    font-size: 0.62em;
+  }
+  #date-overlay {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  #ascii-output {
+    font-size: 0.58em;
+  }
+  #date-overlay {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #ascii-output {
+    font-size: 0.52em;
+  }
+  #date-overlay {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #ascii-output {
+    font-size: 0.45em;
+  }
+  #date-overlay {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #ascii-output {
+    font-size: 0.39em;
+  }
+  #date-overlay {
+    font-size: 0.9rem;
   }
 }

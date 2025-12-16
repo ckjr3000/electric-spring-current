@@ -108,6 +108,7 @@ class ASCIIArtGenerator {
            dateDiv.innerHTML = '<div>18-21 February 2026</div><div>Huddersfield</div>';
             document.body.appendChild(dateDiv);
         }
+        
         const randomX = Math.random() * 80 + 10; // 10% to 90% of width
         const randomY = Math.random() * 80 + 10; // 10% to 90% of height
         dateDiv.style.left = randomX + '%';

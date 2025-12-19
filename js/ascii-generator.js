@@ -13,6 +13,8 @@ class ASCIIArtGenerator {
             'SPRING',
             'FESTIVAL'
         ];
+        this.negativeTextDate = '18-21 FEB 2026'; // Single line for date
+        
         this.charWidth = 7;  // pixels per character
         this.charHeight = 7; // pixels per character 
         window.addEventListener('resize', () => { // Add resize
@@ -53,7 +55,7 @@ class ASCIIArtGenerator {
             this.applyBackgroundGradient(colors);
             const asciiArt = this.imageDataToASCII(imageData); // Convert blended image to ASCII with negative text
             this.displayASCII(asciiArt);    // Display result
-            this.positionDateOverlay();     // Position the floating date overlay
+            // this.positionDateOverlay();     // Position the floating date overlay
         
             } catch (error) {
                 console.error('Error generating ASCII:', error);
@@ -105,12 +107,13 @@ class ASCIIArtGenerator {
         if (!dateDiv) {
             dateDiv = document.createElement('div');
             dateDiv.id = 'date-overlay';
-           dateDiv.innerHTML = '<div>18-21 February 2026</div><div>Huddersfield</div>';
+            dateDiv.innerHTML = '<div>18-21 February 2026</div><div>Huddersfield</div>';
             document.body.appendChild(dateDiv);
         }
-        
+
         const randomX = Math.random() * 80 + 10; // 10% to 90% of width
         const randomY = Math.random() * 80 + 10; // 10% to 90% of height
+        
         dateDiv.style.left = randomX + '%';
         dateDiv.style.top = randomY + '%';
     }
@@ -171,11 +174,11 @@ class ASCIIArtGenerator {
         const viewportCols = Math.ceil(window.innerWidth / charWidth) + 20;
         const viewportRows = Math.ceil(window.innerHeight / lineHeight) + 30; // Extra rows
     
-        for (let y = 0; y < viewportRows; y++) {
+        for (let y = 0; y < viewportRows; y++) { // for through rows
             let line = '';
             let lastChar = ' ';
       
-            for (let x = 0; x < viewportCols; x++) {
+            for (let x = 0; x < viewportCols; x++) { // for through columns
                 // Use modulo to repeat the image if we go beyond its bounds
                 const imgY = y % height;
                 const imgX = x % width;
@@ -187,13 +190,17 @@ class ASCIIArtGenerator {
                     const b = imageData.data[offset + 2];
             
                     // Check if this position should be text - pass viewport dimensions
-                    const isText = this.isPositionInText(x, y, viewportCols, viewportRows);
+                    const isTextTitle = this.isPositionInText(x, y, viewportCols, viewportRows);
+                    const isTextDate = this.isPositionInTextDate(x, y, viewportCols, viewportRows);
             
-                    if (isText) {
+                    if (isTextTitle ) {
                         // Show SOLID BLACK character for text (make it visible)
                         lastChar = '█';
+                        line += lastChar; 
+                    } else if (isTextDate){
+                        lastChar = '▒';
                         line += lastChar;
-                    } else {
+                    }else {
                         // Convert RGB to grayscale (luminance) for background
                         const brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
                 
@@ -216,15 +223,14 @@ class ASCIIArtGenerator {
         const screenHeight = viewportRows;
         const screenWidth = viewportCols;
     
-        // Smaller text - reduced from 8% to 6% of screen height
         const textLineHeight = Math.max(15, Math.floor(screenHeight * 0.06)); // Each line is 6% of screen height
         const lineSpacing = Math.floor(textLineHeight * 0.5);
         const charWidth = Math.floor(textLineHeight * 0.7);
-        const charSpacing = Math.floor(charWidth * 0.25);
+        const charSpacing = Math.floor(charWidth * 0.3);
         
         const totalHeight = (textLineHeight * 3) + (lineSpacing * 2);
         // Position higher - at 35% from top instead of centered (50%)
-        const textStartY = Math.floor(screenHeight * 0.35 - totalHeight / 2);
+        const textStartY = Math.floor(screenHeight * 0.3 - totalHeight / 2);
         
         for (let i = 0; i < this.negativeText.length; i++) {
             const lineY = textStartY + i * (textLineHeight + lineSpacing);
@@ -236,13 +242,50 @@ class ASCIIArtGenerator {
                 
                 const charIndex = Math.floor((x - textStartX) / (charWidth + charSpacing));
                 if (charIndex >= 0 && charIndex < text.length) {
-                    const letter = text[charIndex];
+                    const letter = text[charIndex]; // index of the letter in the text
                     const relativeX = (x - textStartX) % (charWidth + charSpacing);
                     const relativeY = y - lineY;
                 
                     if (relativeX < charWidth && this.isPixelInLetter(letter, relativeX, relativeY, charWidth, textLineHeight)) {
                         return true;
                     }
+                }
+            }
+        }
+        return false;
+    }
+
+    isPositionInTextDate(x, y, viewportCols, viewportRows) {
+        const screenHeight = viewportRows;
+        const screenWidth = viewportCols;
+        
+        // Make date text smaller - 2.5% of screen height instead of 6%
+        const textLineHeight = Math.max(8, Math.floor(screenHeight * 0.025));
+        const charWidth = Math.floor(textLineHeight * 0.6);
+        const charSpacing = Math.floor(charWidth * 0.25);
+        
+        // Position date right after the title
+        const titleHeight = Math.max(15, Math.floor(screenHeight * 0.06));
+        const titleSpacing = Math.floor(titleHeight * 0.4);
+        const titleTotalHeight = (titleHeight * 3) + (titleSpacing * 2);
+        const titleStartY = Math.floor(screenHeight * 0.3 - titleTotalHeight / 2);
+        
+        // Date appears right after the last line of title with small spacing
+        const dateY = titleStartY + titleTotalHeight + Math.floor(titleHeight * 0.3);
+        
+        if (y >= dateY && y < dateY + textLineHeight) {
+            const text = this.negativeTextDate;
+            const textWidth = text.length * (charWidth + charSpacing);
+            const textStartX = Math.floor(screenWidth / 2 - textWidth / 2);
+            
+            const charIndex = Math.floor((x - textStartX) / (charWidth + charSpacing));
+            if (charIndex >= 0 && charIndex < text.length) {
+                const letter = text[charIndex];
+                const relativeX = (x - textStartX) % (charWidth + charSpacing);
+                const relativeY = y - dateY;
+            
+                if (relativeX < charWidth && this.isPixelInLetter(letter, relativeX, relativeY, charWidth, textLineHeight)) {
+                    return true;
                 }
             }
         }
@@ -266,25 +309,25 @@ class ASCIIArtGenerator {
             },
             'R': (x, y, w, h) => {
                 return x < w*0.2 || y < h*0.15 || (y >= h*0.45 && y <= h*0.55) || 
-                    (y < h*0.5 && x > w*0.7) || (y >= h*0.5 && x > w*0.7 && (x-y+h*0.5) > w*0.5);
+                       (y < h*0.5 && x > w*0.7) || (y >= h*0.5 && x > w*0.7 && (x-y+h*0.5) > w*0.5);
             },
             'I': (x, y, w, h) => {
                 return y < h*0.15 || y > h*0.85 || (x >= w*0.45 && x <= w*0.55);
             },
             'S': (x, y, w, h) => {
                 return y < h*0.15 || y > h*0.85 || (y >= h*0.45 && y <= h*0.55) ||
-                    (y < h*0.5 && x < w*0.2) || (y > h*0.5 && x > w*0.7);
+                       (y < h*0.5 && x < w*0.2) || (y > h*0.5 && x > w*0.7);
             },
             'P': (x, y, w, h) => {
                 return x < w*0.2 || y < h*0.15 || (y >= h*0.45 && y <= h*0.55 && x < w*0.7) ||
-                    (y < h*0.5 && x > w*0.7);
+                       (y < h*0.5 && x > w*0.7);
             },
             'N': (x, y, w, h) => {
                 return x < w*0.2 || x > w*0.7 || (x-y > -h*0.1 && x-y < h*0.1);
             },
             'G': (x, y, w, h) => {
                 return x < w*0.2 || y < h*0.15 || y > h*0.85 || 
-                    (y >= h*0.5 && x > w*0.5 && x > w*0.7);
+                       (y >= h*0.5 && x > w*0.5 && x > w*0.7);
             },
             'F': (x, y, w, h) => {
                 return x < w*0.2 || y < h*0.15 || (y >= h*0.45 && y <= h*0.55 && x < w*0.65);
@@ -294,16 +337,57 @@ class ASCIIArtGenerator {
             },
             'V': (x, y, w, h) => {
                 return (y < h*0.7 && (x < w*0.2 || x > w*0.7)) || 
-                    (y >= h*0.7 && x >= w*0.45 && x <= w*0.55);
+                       (y >= h*0.7 && x >= w*0.45 && x <= w*0.55);
+            },
+            'B': (x, y, w, h) => {
+                return x < w*0.2 || y < h*0.15 || y > h*0.85 || (y >= h*0.45 && y <= h*0.55) ||
+                       (y < h*0.5 && x > w*0.7) || (y > h*0.5 && x > w*0.7);
+            },
+            'U': (x, y, w, h) => {
+                return x < w*0.2 || x > w*0.7 || y > h*0.85;
+            },
+            'H': (x, y, w, h) => {
+                return x < w*0.2 || x > w*0.7 || (y >= h*0.45 && y <= h*0.55);
+            },
+            'D': (x, y, w, h) => {
+                return x < w*0.2 || y < h*0.15 || y > h*0.85 || 
+                       (x > w*0.7 && y >= h*0.15 && y <= h*0.85);
+            },
+            'Y': (x, y, w, h) => {
+                return (y < h*0.5 && (x < w*0.2 || x > w*0.7)) || 
+                       (y >= h*0.5 && x >= w*0.45 && x <= w*0.55);
+            },
+            '1': (x, y, w, h) => {
+                return (x >= w*0.4 && x <= w*0.5) || y > h*0.85 || 
+                       (y < h*0.3 && x >= w*0.2 && x <= w*0.4);
+            },
+            '8': (x, y, w, h) => {
+                return x < w*0.2 || x > w*0.7 || y < h*0.15 || y > h*0.85 || 
+                       (y >= h*0.45 && y <= h*0.55);
+            },
+            '2': (x, y, w, h) => {
+                return y < h*0.15 || (y >= h*0.45 && y <= h*0.55) || y > h*0.85 ||
+                       (y < h*0.5 && x > w*0.7) || (y > h*0.5 && x < w*0.2);
+            },
+            '0': (x, y, w, h) => {
+                return x < w*0.2 || x > w*0.7 || y < h*0.15 || y > h*0.85;
+            },
+            '6': (x, y, w, h) => {
+                return x < w*0.2 || y < h*0.15 || y > h*0.85 || (y >= h*0.45 && y <= h*0.55) ||
+                (y > h*0.5 && x > w*0.7);
+            },
+            '-': (x, y, w, h) => {
+                return y >= h*0.45 && y <= h*0.55;
             },
             ' ': (x, y, w, h) => {
                 return false; // Empty space
             }
         };
         
-        const pattern = patterns[letter];
+        const pattern = patterns[letter.toUpperCase()];
         return pattern ? pattern(x, y, w, h) : false;
     }
+    
 
     extractColorsFromImageData(imageData) {
         const colors = [];

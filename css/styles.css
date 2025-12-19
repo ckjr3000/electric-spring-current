@@ -47,7 +47,6 @@ main {
   height: 100vh;
   min-width: 100vw;
   min-height: 100vh;
-  overflow: visible;
   font-weight: 600;
   text-shadow: 0 0 1px rgba(0,0,0,0.2);
   letter-spacing: 0;
@@ -70,6 +69,28 @@ main {
   transform: translate(-50%, -50%);
   letter-spacing: 0.1em;
   justify-content: center;
+}
+
+#refresh-symbol {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+#refresh-button {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1000;
+  width: 5%;
+
+  background-color: rgba(255, 255, 255, 0);
+  opacity: 1;
+  border: none;
+  cursor: pointer;
+  transition: left 0.2s ease-in-out, top 0.2s ease-in-out;
+ 
 }
 
 /* Responsive font sizes */

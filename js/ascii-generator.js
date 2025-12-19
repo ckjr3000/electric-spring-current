@@ -17,29 +17,36 @@ class ASCIIArtGenerator {
         
         this.charWidth = 7;  // pixels per character
         this.charHeight = 7; // pixels per character 
-        window.addEventListener('resize', () => { // Add resize
-            this.handleResize();
+        window.addEventListener('resize', async () => { // Add resize
+            await this.handleResize();
         });
+        
         this.init();
+        this.applyBackgroundColor();
+        this.generateRefresh();
+        // this.positionDateOverlay();     // Position the floating date overlay
     }
 
     async init() {
         await this.generateBlendedASCII();
     }
 
-    handleResize() { // Debounce resize to avoid too many calls
+   handleResize() {
+    return new Promise((resolve) => {
         clearTimeout(this.resizeTimeout);
-        this.resizeTimeout = setTimeout(() => {
-            this.generateBlendedASCII();
+        this.resizeTimeout = setTimeout(async () => {
+            await this.generateBlendedASCII();
+            resolve();
         }, 100);
-    }
+    });
+}
 
     async generateBlendedASCII() {
         try {
             // wait for Promises to complete and returns images
             const imagePromises = this.artists.map(artistId => this.loadImage(`artists/images/${artistId}.jpg`));
             const images = await Promise.allSettled(imagePromises);
-            const loadedImages = images .filter(result => result.status === 'fulfilled').map(result => result.value);
+            const loadedImages = images.filter(result => result.status === 'fulfilled').map(result => result.value);
         
             if (loadedImages.length === 0) {
                 this.applyRandomGradient();
@@ -51,12 +58,9 @@ class ASCIIArtGenerator {
             const selectedImages = shuffled.slice(0, Math.min(2, shuffled.length));
             const asciiDimensions = this.calculateASCIIDimensions(); // Calculate ASCII dimensions to fill viewport
             const imageData = await this.blendImagesAbstract(selectedImages, asciiDimensions); // Blend the 2 selected images
-            const colors = this.extractColorsFromImageData(imageData);  // Extract colors for background
-            this.applyBackgroundGradient(colors);
             const asciiArt = this.imageDataToASCII(imageData); // Convert blended image to ASCII with negative text
             this.displayASCII(asciiArt);    // Display result
-            // this.positionDateOverlay();     // Position the floating date overlay
-        
+            
             } catch (error) {
                 console.error('Error generating ASCII:', error);
                 this.applyRandomGradient();
@@ -101,23 +105,6 @@ class ASCIIArtGenerator {
         ctx.putImageData(imageData, 0, 0);
         return ctx.getImageData(0, 0, canvas.width, canvas.height); // Get the adjusted image data
     }
-
-    positionDateOverlay() { // Create or get the date overlay div
-        let dateDiv = document.getElementById('date-overlay');
-        if (!dateDiv) {
-            dateDiv = document.createElement('div');
-            dateDiv.id = 'date-overlay';
-            dateDiv.innerHTML = '<div>18-21 February 2026</div><div>Huddersfield</div>';
-            document.body.appendChild(dateDiv);
-        }
-
-        const randomX = Math.random() * 80 + 10; // 10% to 90% of width
-        const randomY = Math.random() * 80 + 10; // 10% to 90% of height
-        
-        dateDiv.style.left = randomX + '%';
-        dateDiv.style.top = randomY + '%';
-    }
-
     async blendImagesAbstract(images, dimensions) {
         if (images.length === 0) {
             throw new Error('No images to blend');
@@ -171,7 +158,7 @@ class ASCIIArtGenerator {
         const charWidth = fontSize * 0.6; // Approximate character width (monospace is typically 0.6 of font size)
     
         // Calculate columns and rows needed - add extra to guarantee coverage
-        const viewportCols = Math.ceil(window.innerWidth / charWidth) + 20;
+        const viewportCols = Math.ceil(window.innerWidth / charWidth) ;
         const viewportRows = Math.ceil(window.innerHeight / lineHeight) + 30; // Extra rows
     
         for (let y = 0; y < viewportRows; y++) { // for through rows
@@ -387,58 +374,9 @@ class ASCIIArtGenerator {
         const pattern = patterns[letter.toUpperCase()];
         return pattern ? pattern(x, y, w, h) : false;
     }
-    
 
-    extractColorsFromImageData(imageData) {
-        const colors = [];
-        const samplePoints = [
-            { x: 0.2, y: 0.2 },
-            { x: 0.8, y: 0.2 },
-            { x: 0.5, y: 0.5 },
-            { x: 0.2, y: 0.8 },
-            { x: 0.8, y: 0.8 }
-        ];
-    
-        samplePoints.forEach(point => {
-            const x = Math.floor(imageData.width * point.x);
-            const y = Math.floor(imageData.height * point.y);
-            const offset = (y * imageData.width + x) * 4;
-      
-            colors.push({
-                r: imageData.data[offset],
-                g: imageData.data[offset + 1],
-                b: imageData.data[offset + 2]
-            });
-        });
-        return colors;
-    }
-
-    applyBackgroundGradient(colors) {
-
-        const color1 = { r: 255, g: 255, b: 0 };
-        const color2 = { r: 255, g: 255, b: 0 };
-        // const color2 = colors[colors.length - 1]; // Sample color from the image
-    
-        const gradient = `linear-gradient(135deg, 
-            rgb(${color1.r}, ${color1.g}, ${color1.b}) 0%, 
-            rgb(${color2.r}, ${color2.g}, ${color2.b}) 100%)`;
-    
-        document.body.style.background = gradient;
-    }
-
-    applyRandomGradient() {
-        const color1 = {
-            r: Math.floor(Math.random() * 256),
-            g: Math.floor(Math.random() * 256),
-            b: Math.floor(Math.random() * 256)
-        };
-        const color2 = {
-            r: Math.floor(Math.random() * 256),
-            g: Math.floor(Math.random() * 256),
-            b: Math.floor(Math.random() * 256)
-        };
-    
-        this.applyBackgroundGradient([color1, color2]);
+    applyBackgroundColor() {
+        document.body.style.background = 'rgb(255,255,0)';
     }
 
     displayASCII(asciiArt) {
@@ -448,8 +386,52 @@ class ASCIIArtGenerator {
     displayError() {
         this.asciiOutput.textContent = ` ERROR`;
     }
-}
 
+    generateRefresh(){
+        let refreshButton = document.getElementById('refresh-button');
+        let refreshSymbol = document.getElementById('refresh-symbol');
+
+        if (!refreshButton) {
+            refreshButton = document.createElement('button');
+            refreshButton.id = 'refresh-button';
+            refreshButton.type = 'button';
+            document.body.appendChild(refreshButton);
+        }
+
+        if (!refreshSymbol) {
+            refreshSymbol = document.createElement('img');
+            refreshSymbol.id = 'refresh-symbol';
+            this.loadImage('/assets/refresh.png').then(image => {
+                refreshSymbol.src = image.src;
+            }).catch(error => {
+                console.error('Failed to load refresh icon:', error);
+            });
+            refreshButton.appendChild(refreshSymbol);
+        }
+
+
+        refreshButton.addEventListener("click",  async () => { // Add resize
+            
+            await this.handleResize();
+            
+        });
+    }
+    positionDateOverlay() { // Create or get the date overlay div
+        let dateDiv = document.getElementById('date-overlay');
+        if (!dateDiv) {
+            dateDiv = document.createElement('div');
+            dateDiv.id = 'date-overlay';
+            dateDiv.innerHTML = '<div>18-21 February 2026</div><div>Huddersfield</div>';
+            document.body.appendChild(dateDiv);
+        }
+
+        const randomX = Math.random() * 80 + 10; // 10% to 90% of width
+        const randomY = Math.random() * 80 + 10; // 10% to 90% of height
+        
+        dateDiv.style.left = randomX + '%';
+        dateDiv.style.top = randomY + '%';
+    }
+}
 document.addEventListener('DOMContentLoaded', () => {
     new ASCIIArtGenerator();
 });

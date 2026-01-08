@@ -72,9 +72,8 @@ nav ul li a {
 
 nav ul li a:hover {
   background-color: rgba(255, 255, 255, 1);
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   color: rgb(0, 0, 0);
-  transition: color 0.2s ease;
 }
 
 /* Active state - white background with black text */
@@ -406,6 +405,7 @@ nav ul li a.active:hover {
   margin: 8px 0;
 }
 
+
 .artist-links {
   margin-top: 1em;
   display: flex;
@@ -466,15 +466,21 @@ nav ul li a.active:hover {
 /* Artist links in program page */
 .program-details h3 a.artist-link,
 .program-show a.event-link {
-  color: #000000;
+  background-color: rgba(0, 0, 0, 1);
+  color: rgb(255, 255, 0);
   text-decoration: none;
+  transition: background-color 0.2s ease;
   transition: color 0.2s ease;
+  padding: 0.2em;
 }
 
 .program-details h3 a.artist-link:hover,
 .program-show a.event-link:hover {
-  color: rgb(255, 255, 0);
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 /* Smooth scroll for artist entries */
@@ -717,7 +723,7 @@ nav ul li a.active:hover {
 .event-links a {
   background-color: rgba(0, 0, 0, 1);
   color: rgb(255, 255, 0);
-  padding: 0.5em 1em;
+  padding: 0.4em 0.8em;
   text-decoration: none;
   font-family: "Bebas Neue", sans-serif;
   font-size: 1.1rem;
@@ -726,6 +732,8 @@ nav ul li a.active:hover {
 
 .event-links a:hover {
   background-color: rgba(255, 255, 255, 0.193);
+  color: black;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Responsive adjustments for events */

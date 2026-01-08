@@ -216,7 +216,7 @@ class ASCIIArtGenerator {
     isPositionInTextDate(x, y) {
         // Position date right after the title
         const titleTotalHeight = (this.textLineHeight * 3) + (this.textLineSpacing * 2);
-        const titleStartY = Math.floor(this.viewportRows * 0.3 - titleTotalHeight / 2);
+        const titleStartY = Math.floor(this.viewportRows * 0.32 - titleTotalHeight / 2);
         const dateY = titleStartY + titleTotalHeight + Math.floor(this.textLineHeight * 0.4);
         
         if (y >= dateY && y < dateY + this.dateLineHeight) {

@@ -63,7 +63,7 @@ nav ul li a {
   display: block;
   color: rgb(255, 255, 0);
   background-color: rgba(0, 0, 0, 1);
-  text-align: left;
+  text-align: center;
   padding: 0.5em 1em;
   text-decoration: none;
   font-family: "Bebas Neue", sans-serif;
@@ -140,7 +140,7 @@ nav ul li a.active:hover {
 .page-content {
   background-color: rgb(255, 255, 255);
   padding: 1em 1em;
-  max-width: 800px;
+  max-width: 1080px;
   width: 100%;
   max-height: 100%;
   overflow-y: auto;
@@ -196,7 +196,7 @@ nav ul li a.active:hover {
 
 #page-content-inner ul li a {
   color: #333333;
-  text-align: left;
+  /* text-align: left; */
   padding: 0;
 }
 
@@ -220,126 +220,6 @@ nav ul li a.active:hover {
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-@media (max-width: 1920px) {
-  #ascii-output {
-    font-size: 0.72em;
-  }
-}
-
-@media (max-width: 1600px) {
-  #ascii-output {
-    font-size: 0.68em;
-  }
-  #date-overlay {
-    font-size: 1.8rem;
-  }
-  #page-content-inner h1 {
-    font-size: 2.2rem;
-  }
-  #page-content-inner h2 {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 1400px) {
-  #ascii-output {
-    font-size: 0.65em;
-  }
-  #date-overlay {
-    font-size: 1.6rem;
-  }
-  .page-content {
-    padding: 35px 50px;
-  }
-}
-
-@media (max-width: 1200px) {
-  #ascii-output {
-    font-size: 0.62em;
-  }
-  #date-overlay {
-    font-size: 1.5rem;
-  }
-  #page-content-inner h1 {
-    font-size: 2rem;
-  }
-  #page-content-inner h2 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  #ascii-output {
-    font-size: 0.58em;
-  }
-  #date-overlay {
-    font-size: 1.3rem;
-  }
-  .page-content {
-    padding: 30px 40px;
-    max-width: 700px;
-  }
-}
-
-@media (max-width: 768px) {
-  #ascii-output {
-    font-size: 0.52em;
-  }
-  #date-overlay {
-    font-size: 1.1rem;
-  }
-  .page-container {
-    padding: 5%;
-  }
-  .page-content {
-    padding: 25px 30px;
-  }
-  #page-content-inner h1 {
-    font-size: 1.8rem;
-  }
-  #page-content-inner p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 640px) {
-  #ascii-output {
-    font-size: 0.45em;
-  }
-  #date-overlay {
-    font-size: 1rem;
-  }
-  nav ul li a {
-    padding: 0.4em 0.8em;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #ascii-output {
-    font-size: 0.39em;
-  }
-  #date-overlay {
-    font-size: 0.9rem;
-  }
-  .page-content {
-    padding: 20px;
-    border: 5px solid #333333;
-  }
-  #page-content-inner h1 {
-    font-size: 1.5rem;
-  }
-  #page-content-inner h2 {
-    font-size: 1.2rem;
-  }
-  #refresh-button {
-    width: 8%;
-  }
-}
-
-/* ============================================
    ARTISTS PAGE STYLING
    ============================================ */
 .artists-intro {
@@ -351,6 +231,8 @@ nav ul li a.active:hover {
   margin-bottom: 50px;
   padding-bottom: 40px;
   border-bottom: 2px solid rgba(51, 51, 51, 0.3);
+  scroll-margin-top: 20px;
+  transition: background-color 0.3s ease;
 }
 
 .artist-entry:last-child {
@@ -374,7 +256,7 @@ nav ul li a.active:hover {
 }
 
 .artist-info-section {
-  margin-left: 40px; /* Indentation like program */
+  margin-left: 40px;
 }
 
 .artist-performance-details {
@@ -405,7 +287,6 @@ nav ul li a.active:hover {
   margin: 8px 0;
 }
 
-
 .artist-links {
   margin-top: 1em;
   display: flex;
@@ -429,7 +310,7 @@ nav ul li a.active:hover {
   transition: background-color 0.2s ease;
   transition: color 0.2s ease;
 }
-/* Artist image styling */
+
 .artist-image-container {
   text-align: center;
 }
@@ -439,59 +320,10 @@ nav ul li a.active:hover {
   height: auto;
   max-height: 500px;
   object-fit: cover;
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
 }
-
-@media (max-width: 768px) {
-  .artist-image {
-    max-height: 350px;
-  }
-}
-
-/* Responsive adjustments for artists */
-@media (max-width: 768px) {
-  .artist-header h2 {
-    font-size: 2rem;
-  }
-  
-  .artist-info-section {
-    margin-left: 20px; /* Less indentation on mobile */
-  }
-  
-  .artist-description {
-    font-size: 1.1rem;
-  }
-}
-
-/* Artist links in program page */
-.program-details h3 a.artist-link,
-.program-show a.event-link {
-  background-color: rgba(0, 0, 0, 1);
-  color: rgb(255, 255, 0);
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-  transition: color 0.2s ease;
-  padding: 0.2em;
-}
-
-.program-details h3 a.artist-link:hover,
-.program-show a.event-link:hover {
-  text-decoration: none;
-  background-color: white;
-  color: rgb(0, 0, 0);
-  transition: background-color 0.2s ease;
-  transition: color 0.2s ease;
-}
-
-/* Smooth scroll for artist entries */
-.artist-entry {
-  scroll-margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
 
 /* ============================================
-   PROGRAM
+   PROGRAM PAGE STYLING
    ============================================ */
 .program-intro {
   font-size: 1.2rem;
@@ -532,7 +364,7 @@ nav ul li a.active:hover {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-left: 40px; /* Indentation for artists */
+  margin-left: 40px;
 }
 
 .program-performance {
@@ -586,38 +418,31 @@ nav ul li a.active:hover {
   margin-left: 40px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .program-day-header {
-    flex-direction: column;
-    gap: 5px;
-    align-items: flex-start;
-  }
-  
-  .program-performances {
-    margin-left: 20px; /* Less indentation on mobile */
-  }
-  
-  .program-performance {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .program-time {
-    font-size: 1.5rem;
-    min-width: auto;
-  }
-  
-  .program-no-events {
-    margin-left: 20px;
-  }
+/* Artist links in program page */
+.program-details h3 a.artist-link,
+.program-show a.event-link {
+  background-color: rgba(0, 0, 0, 1);
+  color: rgb(255, 255, 0);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
+  padding: 0.2em;
+}
+
+.program-details h3 a.artist-link:hover,
+.program-show a.event-link:hover {
+  text-decoration: none;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 /* ============================================
    ABOUT PAGE STYLING
    ============================================ */
 .about-content {
-  margin-left: 40px; /* Consistent indentation */
+  margin-left: 40px;
 }
 
 .about-intro {
@@ -640,21 +465,6 @@ nav ul li a.active:hover {
   padding-top: 30px;
   border-top: 2px solid rgba(51, 51, 51, 0.3);
   color: #666666;
-}
-
-/* Responsive adjustments for about */
-@media (max-width: 768px) {
-  .about-content {
-    margin-left: 20px;
-  }
-  
-  .about-intro {
-    font-size: 1.2rem;
-  }
-  
-  .about-section {
-    font-size: 1.05rem;
-  }
 }
 
 /* ============================================
@@ -736,8 +546,192 @@ nav ul li a.active:hover {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Responsive adjustments for events */
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1920px) {
+  #ascii-output {
+    font-size: 0.72em;
+  }
+}
+
+@media (max-width: 1600px) {
+  #ascii-output {
+    font-size: 0.68em;
+  }
+  #date-overlay {
+    font-size: 1.8rem;
+  }
+  #page-content-inner h1 {
+    font-size: 2.2rem;
+  }
+  #page-content-inner h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  #ascii-output {
+    font-size: 0.65em;
+  }
+  #date-overlay {
+    font-size: 1.6rem;
+  }
+  .page-content {
+    padding: 35px 50px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #ascii-output {
+    font-size: 0.62em;
+  }
+  #date-overlay {
+    font-size: 1.5rem;
+  }
+  #page-content-inner h1 {
+    font-size: 2rem;
+  }
+  #page-content-inner h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  #ascii-output {
+    font-size: 0.58em;
+  }
+  #date-overlay {
+    font-size: 1.3rem;
+  }
+  .page-content {
+    padding: 30px 40px;
+    max-width: 700px;
+  }
+}
+
 @media (max-width: 768px) {
+  /* Navigation - Fixed to top on mobile */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgb(255, 255, 0);
+  }
+  
+  nav ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+    gap: 0;
+  }
+  
+  nav ul li {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  
+  nav ul li a,
+  nav ul li a.nav-link {
+    font-size: 0.9rem;
+    padding: 0.5em 0.5em;
+    width: 100%;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  /* ASCII output - Add top padding to avoid nav overlap */
+  #ascii-output {
+    font-size: 0.52em;
+    padding-top: 25px;
+  }
+  
+  /* Page container - Add top padding */
+  .page-container {
+    padding: 5%;
+    padding-top: calc(25px + 5%);
+  }
+  
+  .page-content {
+    padding: 25px 30px;
+  }
+  
+  #date-overlay {
+    font-size: 1.1rem;
+  }
+  
+  #page-content-inner h1 {
+    font-size: 1.8rem;
+  }
+  
+  #page-content-inner h2 {
+    font-size: 1.5rem;
+  }
+  
+  #page-content-inner p {
+    font-size: 1rem;
+  }
+  
+  /* Artists page mobile adjustments */
+  .artist-header h2 {
+    font-size: 2rem;
+  }
+  
+  .artist-info-section {
+    margin-left: 20px;
+  }
+  
+  .artist-description {
+    font-size: 1.1rem;
+  }
+  
+  .artist-image {
+    max-height: 350px;
+  }
+  
+  /* Program page mobile adjustments */
+  .program-day-header {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  
+  .program-performances {
+    margin-left: 20px;
+  }
+  
+  .program-performance {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .program-time {
+    font-size: 1.5rem;
+    min-width: auto;
+  }
+  
+  .program-no-events {
+    margin-left: 20px;
+  }
+  
+  /* About page mobile adjustments */
+  .about-content {
+    margin-left: 20px;
+  }
+  
+  .about-intro {
+    font-size: 1.2rem;
+  }
+  
+  .about-section {
+    font-size: 1.05rem;
+  }
+  
+  /* Events page mobile adjustments */
   .event-header h2 {
     font-size: 2rem;
   }
@@ -748,5 +742,40 @@ nav ul li a.active:hover {
   
   .event-description {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #ascii-output {
+    font-size: 0.45em;
+  }
+  #date-overlay {
+    font-size: 1rem;
+  }
+  nav ul li a {
+    padding: 0.4em 0.8em;
+    font-size: 0.9rem;
+    text-align: center!important;
+  }
+}
+
+@media (max-width: 480px) {
+  #ascii-output {
+    font-size: 0.39em;
+  }
+  #date-overlay {
+    font-size: 0.9rem;
+  }
+  .page-content {
+    padding: 20px;
+  }
+  #page-content-inner h1 {
+    font-size: 1.5rem;
+  }
+  #page-content-inner h2 {
+    font-size: 1.2rem;
+  }
+  #refresh-button {
+    width: 8%;
   }
 }

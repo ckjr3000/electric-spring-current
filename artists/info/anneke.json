@@ -1,11 +1,11 @@
 {
-    "show" : "Whose Voice is your voice?",
-    "name" : "Bienoise",
-    "date" : "18 February",
+    "show" : "this voice; this life; this procession, 2024",
+    "name" : "Brass Art",
+    "date" : "19 February",
     "place" : "Richard Steinitz Building (Phipps Hall)",
     "hour" : "19:00",
-    "link1" : "https://www.bienoise.com/",
+    "link1" : null,
     "link2" : null,
-    "description" : "Alberto Ricca ....",
-    "bio" : "Alberto Ricca ..."
+    "description" : "2-channel video comprised of LiDAR data and Kinect capture, colour and monochrome, with sound. 13 mins. this voice; this life; this procession was developed after visiting Virginia Woolf’s writing shed at Rodmell in Sussex. Public access to her writing shed is limited to a viewing window, but Brass Art were permitted access to scan themselves inside this intimate, creative space and surrounding garden using non-invasive, laser-based technologies, over the course of a single winter’s day. In this work, Woolf’s own creative approach and writing strategies - streams of consciousness, atemporality, defamiliarization - are used in the transmission of fluid and speculative ideas. Being able to ‘move through’ the resulting digital data layers that we see in the video, enables us to visualise aspects of the multiple, fragmented versions of reality and time that Woolf herself articulated. Inspired by incidental sound recordings at Monk’s House made by the artists, electroacoustic composer Annie Mahtani has made recordings of cellophane which she manipulated and processed to create a rich palette of sonic material. The resulting soundscape of this voice; this life; this procession, highlights the relationship between the spatial, material, temporal, and cinematic dimensions of the domestic and creative spaces in which Woolf worked.",
+    "bio" : "..."
 }

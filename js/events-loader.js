@@ -4,6 +4,7 @@ class EventsLoader {
         this.eventsData = [];
         this.artistsList = window.CONFIG ? window.CONFIG.artists : [];
         this.artistsFolder = window.CONFIG ? window.CONFIG.artistsInfoPath : 'artists/info/';
+        this.artistsImagesPath = window.CONFIG ? window.CONFIG.artistsImagesPath : 'artists/images/';
     }
 
     async loadEventData(artistId) {
@@ -15,6 +16,7 @@ class EventsLoader {
             }
             const data = await response.json();
             data.id = artistId;
+            data.imagePath = `${this.artistsImagesPath}${artistId}.jpg`;
             return data;
         } catch (error) {
             console.error(`Error loading event ${artistId}:`, error);
@@ -51,7 +53,7 @@ class EventsLoader {
         }
 
         let html = '<h1>EVENTS</h1>\n';
-        html += '<p class="events-intro">All performances at Electric Spring Festival 2026</p>\n\n';
+        html += '<p class="events-intro">Live performances and Installation at Electric Spring Festival 2026</p>\n\n';
 
         this.eventsData.forEach((event) => {
             html += `<div class="event-entry" id="event-${event.id}">\n`;
@@ -71,6 +73,13 @@ class EventsLoader {
             // Event info section
             html += '  <div class="event-info-section">\n';
             
+            // Artist Image
+            if (event.imagePath) {
+                html += `    <div class="artist-image-container">\n`;
+                html += `      <img src="${event.imagePath}" alt="${event.name}" class="artist-image" onerror="this.style.display='none'">\n`;
+                html += `    </div>\n`;
+            }
+
             // Performance details box
             html += '    <div class="event-performance-details">\n';
             if (event.date) {

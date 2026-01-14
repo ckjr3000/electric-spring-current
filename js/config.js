@@ -10,8 +10,8 @@ const CONFIG = {
         'ellie',
         'hearing',
         'mariam',
-        'modular',
-        'sveio'
+        'edges',
+        'sveid'
     ].sort(),
     artistsImagesPath: 'artists/images/',
     artistsInfoPath: 'artists/info/'

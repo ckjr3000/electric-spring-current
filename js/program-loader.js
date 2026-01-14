@@ -13,7 +13,6 @@ class ProgramLoader {
                 throw new Error('Failed to load program data');
             }
             this.programData = await response.json();
-            console.log('Program data loaded:', this.programData);
             return this.programData;
         } catch (error) {
             console.error('Error loading program data:', error);

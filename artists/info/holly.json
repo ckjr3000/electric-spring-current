@@ -1,13 +1,13 @@
 {
-    "show" : "HOLLY",
+    "show" : null,
     "subtitle" : null,
-    "name" : "HOLLY",
+    "name" : null,
     "type" : "installation",
-    "date" : "18-21 February",
-    "place" : "Richard Steinitz Building ( ... )",
-    "hour" : "14:00-21:00",
-    "link1" : "",
-    "link2" : "",
-    "description" : "",
-    "bio" : ""
+    "date" : null,
+    "place" : null,
+    "hour" : null,
+    "link1" : null,
+    "link2" : null,
+    "description" : null,
+    "bio" : null
 }

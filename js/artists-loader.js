@@ -49,6 +49,9 @@ class ArtistsLoader {
         html += '<p class="artists-intro">Artists performing at Electric Spring Festival 2026</p>\n\n';
 
         this.artistsData.forEach((artist) => {
+
+            if(!artist.name) return;
+            
             html += `<div class="artist-entry" id="artist-${artist.id}">\n`;
             
             // Artist header (Name only)

@@ -314,10 +314,10 @@ nav ul li a.active:hover {
 
 .artist-image {
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
   /* in case I want to clip the height */
   /* max-height: 500px; */ 
-  object-fit: cover;
+  /* object-fit: cover; */
   padding-bottom: 0.5em;
 }
 
@@ -696,7 +696,7 @@ a.event-link:hover {
   }
   
   .artist-image {
-    max-height: 350px;
+    /* max-height: 350px; */
   }
   
   /* Program page mobile adjustments */

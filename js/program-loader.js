@@ -31,10 +31,10 @@ class ProgramLoader {
             
             // Return the fields we need for the program + artist ID for linking
             return {
-                id: artistId, // ADD THIS - needed for the link
+                id: artistId, 
                 show: data.show || null,
                 type: data.type || null,
-                name: data.name || artistId,
+                name: data.name || null,
                 date: data.date || null,
                 place: data.place || null,
                 hour: data.hour || null
@@ -83,8 +83,10 @@ class ProgramLoader {
 
                 // Performances container (indented)
                 html += '  <div class="program-performances">\n';
-
+            
                 sortedArtists.forEach(artist => {
+                    if(!artist.name) return;
+
                     html += '<div class="program-performance">\n';
                     
                     if (artist.hour) { // Time

@@ -1,13 +1,13 @@
 {
-    "show" : "..",
+    "show" : null,
     "subtitle" : null,
-    "name" : "Ellie Fearne",
-    "type" : "live",
-    "date" : "18 February",
-    "place" : "Richard Steinitz Building (Phipps Hall)",
-    "hour" : "19:00",
+    "name" : null,
+    "type" : "installation",
+    "date" : null,
+    "place" : null,
+    "hour" : null,
     "link1" : null,
     "link2" : null,
-    "description" : "....",
-    "bio" : "..."
+    "description" : null,
+    "bio" : null
 }

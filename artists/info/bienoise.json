@@ -1,6 +1,8 @@
 {
     "show" : "Failure as Goal",
+    "subtitle" : null,
     "name" : "Bienoise",
+    "type" : "live",
     "date" : "18 February",
     "place" : "Richard Steinitz Building (Phipps Hall)",
     "hour" : "19:00",

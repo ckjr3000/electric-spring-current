@@ -9,7 +9,6 @@ class PageLoader {
         this.artistsLoader = new ArtistsLoader();
         this.programLoader = new ProgramLoader();
         this.eventsLoader = new EventsLoader();  // ADD THIS
-        this.installationsLoader = new InstallationsLoader();  // ADD THIS
         this.aboutLoader = new AboutLoader();
         
         this.init();
@@ -78,13 +77,7 @@ class PageLoader {
             if (pageName === 'events') {
                 const eventsHTML = await this.eventsLoader.init();
                 this.pageContentInner.innerHTML = eventsHTML;
-                return;
-            }
-
-            // Events page - all events alphabetically with descriptions
-            if (pageName === 'installations') {
-                const installationsHTML = await this.installationsLoader.init();
-                this.pageContentInner.innerHTML = installationsHTML;
+                this.addArtistLinkHandlers();  // Links artist names to Artists page
                 return;
             }
 
@@ -120,7 +113,9 @@ class PageLoader {
                 // Jump directly to the specific event
                 setTimeout(() => {
                     const eventElement = document.getElementById(`event-${eventId}`);
+                    console.log(eventElement);
                     if (eventElement) {
+                        
                         eventElement.scrollIntoView({ block: 'start' });
                         // Highlight the event briefly
                         eventElement.style.backgroundColor = 'rgba(255, 255, 0, 0.2)';

@@ -1,6 +1,8 @@
 {
     "show" : "Sveið Live",
+    "subtitle" : null,
     "name" : "Sveið",
+    "type" : "live",
     "date" : "20 February",
     "place" : "Richard Steinitz Building (Phipps Hall)",
     "hour" : "19:45",

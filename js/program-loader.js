@@ -33,6 +33,7 @@ class ProgramLoader {
             return {
                 id: artistId, // ADD THIS - needed for the link
                 show: data.show || null,
+                type: data.type || null,
                 name: data.name || artistId,
                 date: data.date || null,
                 place: data.place || null,
@@ -87,7 +88,9 @@ class ProgramLoader {
                     html += '<div class="program-performance">\n';
                     
                     if (artist.hour) { // Time
-                        html += `<div class="program-time">${artist.hour}</div>\n`;
+                        html += `<div class="program-installation">${artist.type}\n`;
+                        html += `<div class="program-time"> <span style="font-size: 0.5em;">h.</span> ${artist.hour}</div>\n`;
+                        html += '</div>\n';
                     }
                     
                     html += '<div class="program-details">\n'; // Details

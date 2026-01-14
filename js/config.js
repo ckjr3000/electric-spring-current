@@ -11,7 +11,10 @@ const CONFIG = {
         'hearing',
         'mariam',
         'edges',
-        'sveid'
+        'sveid',
+        'colbert',
+        'holly',
+        'danai'
     ].sort(),
     artistsImagesPath: 'artists/images/',
     artistsInfoPath: 'artists/info/'

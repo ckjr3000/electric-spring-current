@@ -1,6 +1,8 @@
 {
     "show" : "Interference",
+    "subtitle" : null,
     "name" : "Mariam Gviniashvili",
+    "type" : "live",
     "date" : "21 Saturday",
     "place" : "Richard Steinitz Building (Phipps Hall)",
     "hour" : "19:45",

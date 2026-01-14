@@ -28,8 +28,6 @@ class EventsLoader {
             return [];
         }
 
-        console.log(`Loading ${this.artistsList.length} events...`);
-
         const eventPromises = this.artistsList.map(artistId => this.loadEventData(artistId));
         const results = await Promise.allSettled(eventPromises);
         
@@ -56,13 +54,15 @@ class EventsLoader {
         html += '<p class="events-intro">All performances at Electric Spring Festival 2026</p>\n\n';
 
         this.eventsData.forEach((event) => {
-            html += '<div class="event-entry">\n';
+            html += `<div class="event-entry" id="event-${event.id}">\n`;
             
             // Event header (Show name or Artist name)
             html += '  <div class="event-header">\n';
             if (event.show) {
                 html += `    <h2>${event.show}</h2>\n`;
-                html += `    <p class="event-artist-name">${event.name}</p>\n`;
+                html += `<div class="program-installation">${event.type}</div>\n`;
+                html += `    <h3><a href="#" class="event-artist-name artist-link" data-artist="${event.id}">${event.name}</a></h3>\n`;
+
             } else {
                 html += `    <h2>${event.name}</h2>\n`;
             }

@@ -389,6 +389,14 @@ nav ul li a.active:hover {
   font-weight: 700;
 }
 
+.program-installation{
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.3rem;
+  color: #000000;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
 .program-details {
   flex: 1;
 }
@@ -419,8 +427,8 @@ nav ul li a.active:hover {
 }
 
 /* Artist links in program page */
-.program-details h3 a.artist-link,
-.program-show a.event-link {
+ a.artist-link,
+a.event-link {
   background-color: rgba(0, 0, 0, 1);
   color: rgb(255, 255, 0);
   text-decoration: none;
@@ -429,8 +437,8 @@ nav ul li a.active:hover {
   padding: 0.2em;
 }
 
-.program-details h3 a.artist-link:hover,
-.program-show a.event-link:hover {
+a.artist-link:hover,
+a.event-link:hover {
   text-decoration: none;
   background-color: white;
   color: rgb(0, 0, 0);

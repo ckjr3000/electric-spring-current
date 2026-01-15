@@ -142,8 +142,12 @@ class ASCIIArtGenerator {
         
         document.body.removeChild(measureElement);
         
-        // Use measured character width (this is the ONLY change)
-        const charWidth = actualCharWidth > 0 ? actualCharWidth : fontSize * 0.6;
+        // Calculate the ratio between actual and expected (0.6 formula)
+        const expectedCharWidth = fontSize * 0.6;
+        const charWidthRatio = actualCharWidth > 0 ? actualCharWidth / expectedCharWidth : 1;
+        
+        // Use measured character width
+        const charWidth = actualCharWidth > 0 ? actualCharWidth : expectedCharWidth;
         
         this.viewportCols = Math.floor(window.innerWidth / charWidth);
         this.viewportRows = Math.floor(window.innerHeight / lineHeight);
@@ -152,26 +156,28 @@ class ASCIIArtGenerator {
         const isMobile = window.innerWidth <= 768;
         
         if (isMobile) {
-            // MOBILE: Original calculations - UNCHANGED
+            // MOBILE: Adjust calculations by the character width ratio
             const baseSize = Math.floor(window.innerWidth / 24);
             
             this.textLineHeight = Math.max(8, baseSize);
             this.textLineSpacing = Math.floor(this.textLineHeight * 0.08);
-            this.textCharWidth = Math.floor(this.textLineHeight * 0.6);
+            // Apply the character width ratio correction
+            this.textCharWidth = Math.floor(this.textLineHeight * 0.6 * charWidthRatio);
             this.textCharSpacing = Math.floor(this.textCharWidth * 0.1);
             
             this.dateLineHeight = Math.max(6, Math.floor(baseSize * 0.6));
-            this.dateCharWidth = Math.floor(this.dateLineHeight * 0.55);
+            this.dateCharWidth = Math.floor(this.dateLineHeight * 0.55 * charWidthRatio);
             this.dateCharSpacing = Math.floor(this.dateCharWidth * 0.1);
         } else {
-            // DESKTOP: Original calculations - UNCHANGED
+            // DESKTOP: Adjust calculations by the character width ratio
             this.textLineHeight = Math.max(15, Math.floor(this.viewportRows * 0.06));
             this.textLineSpacing = Math.floor(this.textLineHeight * 0.1);
-            this.textCharWidth = Math.floor(this.textLineHeight * 0.7);
+            // Apply the character width ratio correction
+            this.textCharWidth = Math.floor(this.textLineHeight * 0.7 * charWidthRatio);
             this.textCharSpacing = Math.floor(this.textCharWidth * 0.2);
             
             this.dateLineHeight = Math.max(8, Math.floor(this.viewportRows * 0.03));
-            this.dateCharWidth = Math.floor(this.dateLineHeight * 0.6);
+            this.dateCharWidth = Math.floor(this.dateLineHeight * 0.6 * charWidthRatio);
             this.dateCharSpacing = Math.floor(this.dateCharWidth * 0.25);
         }
     }

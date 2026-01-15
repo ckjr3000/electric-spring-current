@@ -12,6 +12,31 @@ h1, h2, h3 {
   font-family: "Bebas Neue", sans-serif;
 }
 
+.fixed-date {
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 5;
+    letter-spacing: 0.1em;
+    margin-top: 4rem; /* Offset below the title */
+}
+
+@media (max-width: 768px) {
+    .fixed-date {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        margin-top: 3rem;
+    }
+}
+
 /* ============================================
    RESET & BASE STYLES
    ============================================ */
@@ -61,6 +86,7 @@ nav ul {
 
 nav ul li a {
   display: block;
+  font-size: 1.4rem;
   color: rgb(255, 255, 0);
   background-color: rgba(0, 0, 0, 1);
   text-align: center;
@@ -642,7 +668,7 @@ a.event-link:hover {
   
   nav ul li a,
   nav ul li a.nav-link {
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     padding: 0.5em 0.5em;
     width: 100%;
     text-align: center;

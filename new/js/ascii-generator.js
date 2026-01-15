@@ -2,7 +2,7 @@
 class ASCIIArtGenerator {
     constructor() {
         this.asciiOutput = document.getElementById('ascii-output');
-        this.asciiChars = '@#+=:. '; // ASCII characters used (from darkest to lightest)
+        this.asciiChars = '@#+=:.'; // ASCII characters used (from darkest to lightest)
         this.artists = window.CONFIG.artists; 
         this.artistsImagesPath = window.CONFIG.artistsImagesPath;
         this.centerText = [
@@ -122,26 +122,54 @@ class ASCIIArtGenerator {
         return ctx.getImageData(0, 0, canvas.width, canvas.height); // return final blended image data
     } 
 
-    updateViewportDimensions() {
-        const computedStyle = window.getComputedStyle(this.asciiOutput);
-        const fontSize = parseFloat(computedStyle.fontSize);
-        const lineHeight = parseFloat(computedStyle.lineHeight) || fontSize;
-        const charWidth = fontSize * 0.6;
+   updateViewportDimensions() {
+    const computedStyle = window.getComputedStyle(this.asciiOutput);
+    const fontSize = parseFloat(computedStyle.fontSize);
+    const lineHeight = parseFloat(computedStyle.lineHeight) || fontSize;
+    
+    // More accurate character width measurement
+    // Create a temporary element to measure actual character dimensions
+    const tempSpan = document.createElement('span');
+    tempSpan.style.font = computedStyle.font;
+    tempSpan.style.fontSize = computedStyle.fontSize;
+    tempSpan.style.fontFamily = computedStyle.fontFamily;
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.style.position = 'absolute';
+    tempSpan.textContent = 'M'.repeat(10); // Measure 10 M's (widest char in monospace)
+    document.body.appendChild(tempSpan);
+    const actualCharWidth = tempSpan.offsetWidth / 10;
+    document.body.removeChild(tempSpan);
+    
+    this.viewportCols = Math.floor(window.innerWidth / actualCharWidth);
+    this.viewportRows = Math.floor(window.innerHeight / lineHeight);
+    
+    // Detect mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Mobile: Use fixed pixel sizes that scale with viewport
+        const scale = Math.min(window.innerWidth / 375, 1); // Scale based on iPhone width baseline
         
-        this.viewportCols = Math.ceil(window.innerWidth / charWidth);
-        this.viewportRows = Math.ceil(window.innerHeight / lineHeight) + 30;
+        this.textLineHeight = Math.max(12, Math.floor(20 * scale));
+        this.textLineSpacing = Math.floor(this.textLineHeight * 0.1);
+        this.textCharWidth = Math.floor(this.textLineHeight * 0.65);
+        this.textCharSpacing = Math.floor(this.textCharWidth * 0.15);
         
-        // Calculate text dimensions (for title overlay)
+        this.dateLineHeight = Math.max(8, Math.floor(12 * scale));
+        this.dateCharWidth = Math.floor(this.dateLineHeight * 0.6);
+        this.dateCharSpacing = Math.floor(this.dateCharWidth * 0.2);
+    } else {
+        // Desktop: Use viewport percentage (original method)
         this.textLineHeight = Math.max(15, Math.floor(this.viewportRows * 0.06));
         this.textLineSpacing = Math.floor(this.textLineHeight * 0.1);
         this.textCharWidth = Math.floor(this.textLineHeight * 0.7);
         this.textCharSpacing = Math.floor(this.textCharWidth * 0.2);
         
-        // Calculate date dimensions (for date overlay)
         this.dateLineHeight = Math.max(8, Math.floor(this.viewportRows * 0.03));
         this.dateCharWidth = Math.floor(this.dateLineHeight * 0.6);
         this.dateCharSpacing = Math.floor(this.dateCharWidth * 0.25);
     }
+}
 
     imageDataToASCII(imageData) {
         const width = imageData.width;
@@ -186,8 +214,11 @@ class ASCIIArtGenerator {
     }
 
     isPositionInText(x, y) {
-        const totalHeight = (this.textLineHeight * 3) + (this.textLineSpacing * 2);
-        const textStartY = Math.floor(this.viewportRows * 0.35 - totalHeight / 2);
+        const totalHeight = (this.textLineHeight * 3) + (this.textLineSpacing * 2); // Account for mobile nav bar (25px padding-top in CSS)
+    const navOffset = window.innerWidth <= 768 ? 25 / parseFloat(window.getComputedStyle(this.asciiOutput).lineHeight) : 0;
+    
+    const textStartY = Math.floor((this.viewportRows - navOffset) * 0.40 - totalHeight / 2);
+    
         
         for (let i = 0; i < this.centerText.length; i++) {
             const lineY = textStartY + i * (this.textLineHeight + this.textLineSpacing);
@@ -213,12 +244,15 @@ class ASCIIArtGenerator {
         return false;
     }
 
-    isPositionInTextDate(x, y) {
-        // Position date right after the title
-        const titleTotalHeight = (this.textLineHeight * 3) + (this.textLineSpacing * 2);
-        const titleStartY = Math.floor(this.viewportRows * 0.32 - titleTotalHeight / 2);
-        const dateY = titleStartY + titleTotalHeight + Math.floor(this.textLineHeight * 0.4);
-        
+  isPositionInTextDate(x, y) {
+    const titleTotalHeight = (this.textLineHeight * 3) + (this.textLineSpacing * 2);
+    
+    // Account for mobile nav bar
+    const navOffset = window.innerWidth <= 768 ? 25 / parseFloat(window.getComputedStyle(this.asciiOutput).lineHeight) : 0;
+    
+    const titleStartY = Math.floor((this.viewportRows - navOffset) * 0.37 - titleTotalHeight / 2);
+    const dateY = titleStartY + titleTotalHeight + Math.floor(this.textLineHeight * 0.4);
+    
         if (y >= dateY && y < dateY + this.dateLineHeight) {
             const text = this.date;
             const textWidth = text.length * (this.dateCharWidth + this.dateCharSpacing);

@@ -1,7 +1,7 @@
 {
     "day 1" : {
         "date" : "18 February 2026",
-        "artists": ["colbert", "holly", "danai", "bienoise", "ellie"]
+        "artists": ["colbert", "holly", "danai", "ellie",  "bienoise"]
     }, 
     "day 2" : {
         "date" : "19 February 2026",

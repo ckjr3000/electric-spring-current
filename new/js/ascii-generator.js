@@ -1,4 +1,4 @@
-// ASCII generator Class
+// ASCII generator Class - Fixed Character Width Measurement (No Date)
 class ASCIIArtGenerator {
     constructor() {
         this.asciiOutput = document.getElementById('ascii-output');
@@ -10,10 +10,10 @@ class ASCIIArtGenerator {
             'SPRING',
             'FESTIVAL'
         ];
-        // DATE REMOVED - now a fixed HTML element
         
-        this.charWidth = 7;  // pixels per character
-        this.charHeight = 7; // pixels per character 
+        // These will be measured dynamically
+        this.charWidth = 7;
+        this.charHeight = 7;
 
         this.updateViewportDimensions(); // Calculate viewport dimensions
 
@@ -122,22 +122,41 @@ class ASCIIArtGenerator {
         const fontSize = parseFloat(computedStyle.fontSize);
         const lineHeight = parseFloat(computedStyle.lineHeight) || fontSize;
         
-        // Reliable character width for monospace (Courier New = 0.6 × fontSize)
-        const charWidth = fontSize * 0.6;
+        // CRITICAL FIX: Measure actual character width
+        // Create a temporary element to measure the actual rendered width of a character
+        const measureElement = document.createElement('span');
+        measureElement.style.font = computedStyle.font;
+        measureElement.style.fontSize = computedStyle.fontSize;
+        measureElement.style.fontFamily = computedStyle.fontFamily;
+        measureElement.style.visibility = 'hidden';
+        measureElement.style.position = 'absolute';
+        measureElement.style.whiteSpace = 'pre';
+        measureElement.textContent = '█'; // Use the solid block character we use for text
+        document.body.appendChild(measureElement);
         
-        this.viewportCols = Math.floor(window.innerWidth / charWidth);
-        this.viewportRows = Math.floor(window.innerHeight / lineHeight);
+        const actualCharWidth = measureElement.getBoundingClientRect().width;
+        const actualCharHeight = measureElement.getBoundingClientRect().height;
         
+        document.body.removeChild(measureElement);
+        
+        // Use measured values
+        this.charWidth = actualCharWidth > 0 ? actualCharWidth : fontSize * 0.6;
+        this.charHeight = actualCharHeight > 0 ? actualCharHeight : lineHeight;
+        
+        this.viewportCols = Math.floor(window.innerWidth / this.charWidth);
+        this.viewportRows = Math.floor(window.innerHeight / this.charHeight);
+        
+        // Detect mobile
         const isMobile = window.innerWidth <= 768;
         
         if (isMobile) {
-            // MOBILE: Simplified, more conservative sizing
-            const baseSize = Math.floor(window.innerWidth / 20);
+            // MOBILE: Use measured character dimensions
+            const baseSize = Math.floor(window.innerWidth / 22);
             
-            this.textLineHeight = Math.max(10, baseSize);
-            this.textLineSpacing = Math.floor(this.textLineHeight * 0.12);
+            this.textLineHeight = Math.max(8, baseSize);
+            this.textLineSpacing = Math.floor(this.textLineHeight * 0.08);
             this.textCharWidth = Math.floor(this.textLineHeight * 0.6);
-            this.textCharSpacing = Math.floor(this.textCharWidth * 0.15);
+            this.textCharSpacing = Math.floor(this.textCharWidth * 0.1);
         } else {
             // DESKTOP: Original calculations
             this.textLineHeight = Math.max(15, Math.floor(this.viewportRows * 0.06));
@@ -145,6 +164,16 @@ class ASCIIArtGenerator {
             this.textCharWidth = Math.floor(this.textLineHeight * 0.7);
             this.textCharSpacing = Math.floor(this.textCharWidth * 0.2);
         }
+        
+        console.log('Character measurement:', {
+            actualCharWidth: actualCharWidth,
+            actualCharHeight: actualCharHeight,
+            charWidth: this.charWidth,
+            charHeight: this.charHeight,
+            viewportCols: this.viewportCols,
+            viewportRows: this.viewportRows,
+            isMobile: isMobile
+        });
     }
 
     imageDataToASCII(imageData) {
@@ -157,17 +186,16 @@ class ASCIIArtGenerator {
     
         for (let y = 0; y < viewportRows; y++) {
             let line = '';
-            let lastChar = ' ';
       
             for (let x = 0; x < viewportCols; x++) {
                 const imgY = y % height;
                 const imgX = x % width;
 
-                // Check if position should be text (title only, no date)
+                // Check if the position should be text (title only)
                 const isTextTitle = this.isPositionInText(x, y);
             
                 if (isTextTitle) {
-                    lastChar = '█';
+                    line += '█';
                 } else {
                     const offset = (imgY * width + imgX) * 4;
                     const r = imageData.data[offset];
@@ -175,9 +203,8 @@ class ASCIIArtGenerator {
                     const b = imageData.data[offset + 2];
                     const brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
                     const charIndex = Math.floor((1 - brightness) * (this.asciiChars.length - 1));
-                    lastChar = this.asciiChars[charIndex];
+                    line += this.asciiChars[charIndex];
                 }
-                line += lastChar; 
             }
             ascii += line + '\n';
         }

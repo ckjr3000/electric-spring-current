@@ -96,14 +96,15 @@ class ProgramLoader {
                     }
                     
                     html += '<div class="program-details">\n'; // Details
-                    
-                    // Artist name with link to artists page
-                    html += `<h3><a href="#" class="artist-link" data-artist="${artist.id}">${artist.name}</a></h3>\n`;
+                
                     
                     // Show title with link to events page
                     if (artist.show) {
-                        html += `<p class="program-show"><a href="#" class="event-link" data-event="${artist.id}">"${artist.show}"</a></p>\n`;
+                        html += `<h2 class="program-show"><a href="#" class="event-link" data-event="${artist.id}">${artist.show}</a></h2>\n`;
                     }
+
+                    // Artist name with link to artists page
+                    html += `<p><a href="#" class="artist-link" data-artist="${artist.id}">${artist.name}</a></p>\n`;
                     
                     if (artist.place) {
                         html += `<p class="program-venue">${artist.place}</p>\n`;

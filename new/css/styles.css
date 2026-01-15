@@ -116,26 +116,27 @@ nav ul li a.active:hover {
    ASCII ART OUTPUT
    ============================================ */
 #ascii-output {
-  font-family: "Courier New", "Courier", monospace;
-  font-size: 0.55em;
-  line-height: 1.0;
-  white-space: pre;
-  color: #000000;
-  text-align: left;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  min-width: 100vw;
-  min-height: 100vh;
-  font-weight: 600;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-  letter-spacing: 0;
-  margin: 0;
-  padding: 0;
-  display: block;
-  cursor: pointer;  /* shows it's clickable */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: 0;
+    word-spacing: 0;
+    white-space: pre;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffff00; /* Yellow background */
+    color: #000;
+    z-index: 1;
+    /* CRITICAL: Prevent text wrapping and scaling */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-feature-settings: "tnum"; /* Tabular numbers */
 }
 
 /* ============================================
@@ -193,16 +194,14 @@ nav ul li a.active:hover {
 }
 
 #page-content-inner h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #333333;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  font-family: "Bebas Neue", sans-serif;
+  margin-top: 1em;
 }
 
 #page-content-inner p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
   color: #333333;
 }
 
@@ -435,7 +434,7 @@ nav ul li a.active:hover {
 .program-show {
   margin: 5px 0;
   color: #444444;
-  font-size: 1.1rem;
+  font-size: 1.7rem;
 }
 
 .program-venue {
@@ -598,7 +597,7 @@ a.event-link:hover {
     font-size: 2.2rem;
   }
   #page-content-inner h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -625,7 +624,7 @@ a.event-link:hover {
     font-size: 2rem;
   }
   #page-content-inner h2 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 }
 
@@ -641,6 +640,8 @@ a.event-link:hover {
     max-width: 700px;
   }
 }
+
+
 
 @media (max-width: 768px) {
   /* Navigation - Fixed to top on mobile */
@@ -701,7 +702,7 @@ a.event-link:hover {
   }
   
   #page-content-inner h2 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   
   #page-content-inner p {
@@ -805,7 +806,7 @@ a.event-link:hover {
     font-size: 1.5rem;
   }
   #page-content-inner h2 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   #refresh-button {
     width: 8%;

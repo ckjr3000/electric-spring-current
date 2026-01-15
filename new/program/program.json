@@ -1,18 +1,18 @@
 {
     "day 1" : {
         "date" : "18 February 2026",
-        "artists": ["bienoise", "ellie", "colbert", "holly", "danai"]
+        "artists": ["colbert", "holly", "danai", "bienoise", "ellie"]
     }, 
     "day 2" : {
         "date" : "19 February 2026",
-        "artists": ["anneke", "chill", "blush", "colbert", "holly", "danai"]
+        "artists": ["colbert", "holly", "danai", "anneke", "chill", "blush"]
     }, 
      "day 3" : {
         "date" : "20 February 2026",
-        "artists": ["edges", "sveid", "colbert", "holly", "danai"]
+        "artists": ["colbert", "holly", "danai", "edges", "sveid"]
     }, 
      "day 4" : {
         "date" : "21 February 2026",
-        "artists": ["hearing", "mariam", "colbert", "holly", "danai"]
+        "artists": ["colbert", "holly", "danai", "hearing", "mariam"]
     }
 }

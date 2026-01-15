@@ -140,7 +140,7 @@ class ASCIIArtGenerator {
     if (isMobile) {
         // MOBILE: Use much simpler, more conservative sizing
         // Base everything on actual viewport width, not rows
-        const baseSize = Math.floor(window.innerWidth / 30); // Divide width into ~30 units
+        const baseSize = Math.floor(window.innerWidth / 22); // Divide width into ~30 units
         
         this.textLineHeight = Math.max(8, baseSize);
         this.textLineSpacing = Math.floor(this.textLineHeight * 0.08);

@@ -62,12 +62,12 @@ class ArtistsLoader {
             // Artist content section
             html += '  <div class="artist-info-section">\n';
             
-            // Artist Image
-            if (artist.imagePath) {
-                html += `    <div class="artist-image-container">\n`;
-                html += `      <img src="${artist.imagePath}" alt="${artist.name}" class="artist-image" onerror="this.style.display='none'">\n`;
-                html += `    </div>\n`;
-            }
+            // Artist Image : if I want to add the artist images
+            // if (artist.imagePath) {
+            //     html += `    <div class="artist-image-container">\n`;
+            //     html += `      <img src="${artist.imagePath}" alt="${artist.name}" class="artist-image" onerror="this.style.display='none'">\n`;
+            //     html += `    </div>\n`;
+            // }
             
             // Bio
             if (artist.bio) {

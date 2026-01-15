@@ -1,9 +1,14 @@
-// ASCII generator Class - Simple Random Fill with Block Letters
+// ASCII generator Class - Image Blending Only (No Text Overlay)
 class ASCIIArtGenerator {
     constructor() {
         this.asciiOutput = document.getElementById('ascii-output');
-        this.asciiChars = '@#+=:.'; // ASCII characters for background
+        this.asciiChars = '@#+=:.'; // ASCII characters used (from darkest to lightest)
+        this.artists = window.CONFIG.artists; 
+        this.artistsImagesPath = window.CONFIG.artistsImagesPath;
         
+        this.charWidth = 7;  // pixels per character
+        this.charHeight = 7; // pixels per character 
+
         this.updateViewportDimensions();
 
         window.addEventListener('resize', () => {
@@ -14,123 +19,134 @@ class ASCIIArtGenerator {
             this.handleResize();
         });
 
-        this.generateASCII();
+        this.generateBlendedASCII();
     }
 
     handleResize() {
-        clearTimeout(this.resizeTimeout);
-        this.resizeTimeout = setTimeout(() => {
-            this.updateViewportDimensions();
-            this.generateASCII();
-        }, 100);
+        return new Promise((resolve) => {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(async () => {
+                this.updateViewportDimensions();
+                await this.generateBlendedASCII();
+                resolve();
+            }, 100);
+        });
     }
+
+    async generateBlendedASCII() {
+        try {
+            const imagePromises = this.artists.map(artist => 
+                this.loadImage(`${this.artistsImagesPath}${artist}.jpg`)
+            );
+            const images = await Promise.allSettled(imagePromises);
+            const loadedImages = images.filter(result => result.status === 'fulfilled').map(result => result.value);
+        
+            if (loadedImages.length === 0) return;
+        
+            const shuffled = [...loadedImages].sort(() => Math.random() - 0.5);
+            const selectedImages = shuffled.slice(0, Math.min(2, shuffled.length));
+            const asciiDimensions = this.calculateASCIIDimensions();
+            const imageData = await this.blendImagesAbstract(selectedImages, asciiDimensions);
+            const asciiArt = this.imageDataToASCII(imageData);
+            this.asciiOutput.textContent = asciiArt;
+            
+        } catch (error) {
+            console.error('Error generating ASCII:', error);
+        }
+    }
+
+    calculateASCIIDimensions() {
+        const cols = Math.floor(window.innerWidth / this.charWidth);
+        const rows = Math.floor(window.innerHeight / this.charHeight);
+        return { width: cols, height: rows };
+    }
+
+    loadImage(path) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.crossOrigin = 'Anonymous';
+            img.onload = () => resolve(img);
+            img.onerror = () => reject(new Error(`Failed to load ${path}`));
+            img.src = path;
+        });
+    }
+
+    async blendImagesAbstract(images, dimensions) {
+        if (images.length === 0) {
+            throw new Error('No images to blend');
+        }
+    
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = dimensions.width;
+        canvas.height = dimensions.height;
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+        images.forEach((img) => {
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+            tempCanvas.width = dimensions.width;
+            tempCanvas.height = dimensions.height;
+      
+            const scale = 0.95 + Math.random() * 0.15; 
+            const offsetX = (Math.random() - 0.5) * dimensions.width * 0.15; 
+            const offsetY = (Math.random() - 0.5) * dimensions.height * 0.15;
+            const rotation = (Math.random() - 0.5) * 0.2; 
+      
+            tempCtx.save();
+            tempCtx.translate(dimensions.width / 2, dimensions.height / 2);
+            tempCtx.rotate(rotation);
+            tempCtx.scale(scale, scale);
+            tempCtx.translate(-dimensions.width / 2 + offsetX, -dimensions.height / 2 + offsetY);
+            tempCtx.drawImage(img, 0, 0, dimensions.width, dimensions.height);
+            tempCtx.restore();
+      
+            ctx.globalAlpha = 0.5;
+            ctx.globalCompositeOperation = 'normal';
+            ctx.drawImage(tempCanvas, 0, 0);
+        });
+    
+        return ctx.getImageData(0, 0, canvas.width, canvas.height);
+    } 
 
     updateViewportDimensions() {
         const computedStyle = window.getComputedStyle(this.asciiOutput);
         const fontSize = parseFloat(computedStyle.fontSize);
         const lineHeight = parseFloat(computedStyle.lineHeight) || fontSize;
         
-        // Measure actual character dimensions
-        const measureElement = document.createElement('span');
-        measureElement.style.font = computedStyle.font;
-        measureElement.style.fontSize = computedStyle.fontSize;
-        measureElement.style.fontFamily = computedStyle.fontFamily;
-        measureElement.style.visibility = 'hidden';
-        measureElement.style.position = 'absolute';
-        measureElement.style.whiteSpace = 'pre';
-        measureElement.textContent = '█';
-        document.body.appendChild(measureElement);
+        const charWidth = fontSize * 0.6;
         
-        const rect = measureElement.getBoundingClientRect();
-        this.charWidth = rect.width;
-        this.charHeight = rect.height;
-        
-        document.body.removeChild(measureElement);
-        
-        this.cols = Math.floor(window.innerWidth / this.charWidth);
-        this.rows = Math.floor(window.innerHeight / this.charHeight);
-        
-        // Letter sizing
-        const isMobile = window.innerWidth <= 768;
-        if (isMobile) {
-            this.charsPerLetter = 10; // Width of each letter
-            this.letterSpacing = 2;   // Space between letters
-            this.linesPerLetter = 8;
-            this.lineSpacing = 3;     // Space between words (ELECTRIC, SPRING, FESTIVAL)
-        } else {
-            this.charsPerLetter = 13; // Width of each letter
-            this.letterSpacing = 3;   // Space between letters
-            this.linesPerLetter = 15;
-            this.lineSpacing = 4;     // Space between words
-        }
+        this.viewportCols = Math.floor(window.innerWidth / charWidth);
+        this.viewportRows = Math.floor(window.innerHeight / lineHeight);
     }
 
-    generateASCII() {
-        const title = [
-            'ELECTRIC',
-            'SPRING',
-            'FESTIVAL'
-        ];
-        
-        // Calculate total title height
-        const totalTitleHeight = (this.linesPerLetter * title.length) + (this.lineSpacing * (title.length - 1));
-        const titleStartRow = Math.floor((this.rows - totalTitleHeight) / 2);
-        
-        let output = '';
-        
-        for (let row = 0; row < this.rows; row++) {
+    imageDataToASCII(imageData) {
+        const width = imageData.width;
+        const height = imageData.height;
+        let ascii = '';
+
+        const viewportCols = this.viewportCols;
+        const viewportRows = this.viewportRows;
+    
+        for (let y = 0; y < viewportRows; y++) {
             let line = '';
-            
-            for (let col = 0; col < this.cols; col++) {
-                let char = this.getRandomChar();
-                
-                // Check if we're in any title line
-                for (let i = 0; i < title.length; i++) {
-                    const lineStartRow = titleStartRow + (i * (this.linesPerLetter + this.lineSpacing));
-                    const lineEndRow = lineStartRow + this.linesPerLetter;
-                    
-                    if (row >= lineStartRow && row < lineEndRow) {
-                        const titleText = title[i];
-                        // Calculate width including spacing between letters
-                        const titleWidth = (titleText.length * this.charsPerLetter) + ((titleText.length - 1) * this.letterSpacing);
-                        const titleStartCol = Math.floor((this.cols - titleWidth) / 2);
-                        
-                        if (col >= titleStartCol && col < titleStartCol + titleWidth) {
-                            // Calculate which letter and position within that letter
-                            const posInTitle = col - titleStartCol;
-                            const letterWithSpacing = this.charsPerLetter + this.letterSpacing;
-                            const charIndex = Math.floor(posInTitle / letterWithSpacing);
-                            const posInLetter = posInTitle % letterWithSpacing;
-                            
-                            // Only render if we're within the letter area (not in spacing)
-                            if (charIndex < titleText.length && posInLetter < this.charsPerLetter) {
-                                const relativeX = posInLetter;
-                                const relativeY = row - lineStartRow;
-                                
-                                if (this.isPixelInLetter(titleText[charIndex], relativeX, relativeY, this.charsPerLetter, this.linesPerLetter)) {
-                                    char = '█';
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                line += char;
+      
+            for (let x = 0; x < viewportCols; x++) {
+                const imgY = y % height;
+                const imgX = x % width;
+
+                const offset = (imgY * width + imgX) * 4;
+                const r = imageData.data[offset];
+                const g = imageData.data[offset + 1];
+                const b = imageData.data[offset + 2];
+                const brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                const charIndex = Math.floor((1 - brightness) * (this.asciiChars.length - 1));
+                line += this.asciiChars[charIndex];
             }
-            
-            output += line + '\n';
+            ascii += line + '\n';
         }
-        
-        this.asciiOutput.textContent = output;
-    }
-
-    isPixelInLetter(letter, x, y, w, h) {
-        const pattern = window.LETTER_PATTERNS[letter.toUpperCase()];
-        return pattern ? pattern(x, y, w, h) : false;
-    }
-
-    getRandomChar() {
-        return this.asciiChars[Math.floor(Math.random() * this.asciiChars.length)];
+        return ascii;
     }
 }
 

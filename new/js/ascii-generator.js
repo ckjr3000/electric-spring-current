@@ -127,7 +127,7 @@ class ASCIIArtGenerator {
         const fontSize = parseFloat(computedStyle.fontSize);
         const lineHeight = parseFloat(computedStyle.lineHeight) || fontSize;
         
-        // CHANGED: Measure actual character width instead of using formula
+        // Measure actual character width on this device
         const measureElement = document.createElement('span');
         measureElement.style.font = computedStyle.font;
         measureElement.style.fontSize = computedStyle.fontSize;
@@ -142,6 +142,7 @@ class ASCIIArtGenerator {
         
         document.body.removeChild(measureElement);
         
+        // Use measured character width (this is the ONLY change)
         const charWidth = actualCharWidth > 0 ? actualCharWidth : fontSize * 0.6;
         
         this.viewportCols = Math.floor(window.innerWidth / charWidth);
@@ -151,9 +152,8 @@ class ASCIIArtGenerator {
         const isMobile = window.innerWidth <= 768;
         
         if (isMobile) {
-            // MOBILE: Use much simpler, more conservative sizing
-            // Base everything on actual viewport width, not rows
-            const baseSize = Math.floor(window.innerWidth / 24); // Divide width into ~30 units
+            // MOBILE: Original calculations - UNCHANGED
+            const baseSize = Math.floor(window.innerWidth / 24);
             
             this.textLineHeight = Math.max(8, baseSize);
             this.textLineSpacing = Math.floor(this.textLineHeight * 0.08);
@@ -164,7 +164,7 @@ class ASCIIArtGenerator {
             this.dateCharWidth = Math.floor(this.dateLineHeight * 0.55);
             this.dateCharSpacing = Math.floor(this.dateCharWidth * 0.1);
         } else {
-            // DESKTOP: Original calculations
+            // DESKTOP: Original calculations - UNCHANGED
             this.textLineHeight = Math.max(15, Math.floor(this.viewportRows * 0.06));
             this.textLineSpacing = Math.floor(this.textLineHeight * 0.1);
             this.textCharWidth = Math.floor(this.textLineHeight * 0.7);

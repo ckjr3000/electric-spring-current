@@ -64,15 +64,21 @@ class EventsLoader {
 html += '  <div class="event-header">\n';
 if (event.show) {
     html += `    <h2 class="program-show">${event.show}</h2>\n`;
-    html += `    <p><a href="#" class="artist-link" data-artist="${event.id}">${event.name}</a></p>\n`;
+    // html += `    <p><a href="#" class="artist-link" data-artist="${event.id}">${event.name}</a></p>\n`;
 }
 html += '  </div>\n';
+
+
+
             
             // Event info section
             html += '  <div class="event-info-section">\n';
 
             // Performance details box
             html += '    <div class="event-performance-details">\n';
+            if (event.name) {
+                html += `      <p><strong>Artist:</strong> <a href="#" class="artist-link" data-artist="${event.id}">${event.name}</a></p>\n`;
+            }
              if (event.type) {
                 html += `      <p><strong>Event type:</strong> ${event.type}</p>\n`;
             }

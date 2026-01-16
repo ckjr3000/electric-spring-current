@@ -233,7 +233,7 @@ nav ul li a.active:hover {
   font-size: 1.2rem;
   line-height: 1.8;
   color: #333333;
-  margin-bottom: 30px;
+  margin-bottom: 3px;
 }
 
 #page-content-inner ul {
@@ -795,7 +795,7 @@ a.event-link:hover {
 
 .event-header p {
   margin-top: 0!important; 
-  
+
 }
 
 .event-info-section {

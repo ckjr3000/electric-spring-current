@@ -38,7 +38,8 @@ class ProgramLoader {
                 date: data.date || null,
                 place: data.place || null,
                 hour: data.hour || null,
-                cost: data.cost || null
+                cost: data.cost || null,
+                bio: data.bio || null
             };
         } catch (error) {
             console.error(`Error loading artist info ${artistId}:`, error);
@@ -112,14 +113,17 @@ class ProgramLoader {
                     
                     html += '<div class="program-details">\n'; // Details
                 
-                    
                     // Show title with link to events page
                     if (artist.show) {
                         html += `<h2 class="program-show"><a href="#" class="event-link" data-event="${artist.id}">${artist.show}</a></h2>\n`;
                     }
 
                     // Artist name with link to artists page
-                    html += `<p><a href="#" class="artist-link" data-artist="${artist.id}">${artist.name}</a></p>\n`;
+                    if(artist.bio){
+                        html += `<p><a href="#" class="artist-link" data-artist="${artist.id}">${artist.name}</a></p>\n`;
+                    } else {
+                        html += `<p><span class="artist-link">${artist.name}</span></p>\n`;
+                    }
                     
                     if (artist.place) {
                         html += `<p class="program-venue">${artist.place}</p>\n`;

@@ -60,23 +60,20 @@ class EventsLoader {
 
             html += `<div class="event-entry" id="event-${event.id}">\n`;
             
-  // Event header (Show name or Artist name)
-html += '  <div class="event-header">\n';
-if (event.show) {
-    html += `    <h2 class="program-show">${event.show}</h2>\n`;
-    // html += `    <p><a href="#" class="artist-link" data-artist="${event.id}">${event.name}</a></p>\n`;
-}
-html += '  </div>\n';
+            // Event header (Show name or Artist name)
+            html += '  <div class="event-header">\n';
+            if (event.show) {
+                html += `    <h2 class="program-show">${event.show}</h2>\n`;
+                // html += `    <p><a href="#" class="artist-link" data-artist="${event.id}">${event.name}</a></p>\n`;
+            }
+            html += '  </div>\n';
 
-
-
-            
             // Event info section
             html += '  <div class="event-info-section">\n';
 
             // Performance details box
             html += '    <div class="event-performance-details">\n';
-            if (event.name) {
+            if (event.name && event.bio) { 
                 html += `      <p><strong>Artist:</strong> <a href="#" class="artist-link" data-artist="${event.id}">${event.name}</a></p>\n`;
             }
              if (event.type) {

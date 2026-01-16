@@ -14,7 +14,9 @@ const CONFIG = {
         'sveid',
         'colbert',
         'holly',
-        'danai'
+        'danai',
+        'ccl',
+        'float'
     ].sort(),
     artistsImagesPath: 'artists/images/',
     artistsInfoPath: 'artists/info/'

@@ -64,8 +64,7 @@ class EventsLoader {
             html += '  <div class="event-header">\n';
             if (event.show) {
                 html += `    <h2>${event.show}</h2>\n`;
-                html += `<div class="program-installation">${event.type}</div>\n`;
-                html += `    <h3><a href="#" class="event-artist-name artist-link" data-artist="${event.id}">${event.name}</a></h3>\n`;
+                html += `    <h2><a href="#" class="event-artist-name artist-link" data-artist="${event.id}">${event.name}</a></h2>\n`;
 
             } else {
                 html += `    <h2>${event.name}</h2>\n`;
@@ -74,13 +73,6 @@ class EventsLoader {
             
             // Event info section
             html += '  <div class="event-info-section">\n';
-            
-            // Artist Image
-            if (event.imagePath) {
-                html += `    <div class="artist-image-container">\n`;
-                html += `      <img src="${event.imagePath}" alt="${event.name}" class="artist-image" onerror="this.style.display='none'">\n`;
-                html += `    </div>\n`;
-            }
 
             // Performance details box
             html += '    <div class="event-performance-details">\n';
@@ -94,6 +86,13 @@ class EventsLoader {
                 html += `      <p><strong>Venue:</strong> ${event.place}</p>\n`;
             }
             html += '    </div>\n';
+
+                        // Artist Image
+            if (event.imagePath) {
+                html += `    <div class="artist-image-container">\n`;
+                html += `      <img src="${event.imagePath}" alt="${event.name}" class="artist-image" onerror="this.style.display='none'">\n`;
+                html += `    </div>\n`;
+            }
             
             // Description
             if (event.description) {
@@ -101,13 +100,15 @@ class EventsLoader {
             }
             
             // Links
+
+            
             if (event.link1 || event.link2) {
                 html += '    <div class="event-links">\n';
-                if (event.link1) {
-                    html += `      <a href="${event.link1}" target="_blank" rel="noopener noreferrer">link</a>\n`;
+                if (event.link1 && event.type_link1) {
+                    html += `      <a href="${event.link1}" target="_blank" rel="noopener noreferrer">${event.type_link1}</a>\n`;
                 }
-                if (event.link2) {
-                    html += `      <a href="${event.link2}" target="_blank" rel="noopener noreferrer">link</a>\n`;
+                if (event.link2 && event.type_link2) {
+                    html += `      <a href="${event.link2}" target="_blank" rel="noopener noreferrer">${event.type_link2}</a>\n`;
                 }
                 html += '    </div>\n';
             }

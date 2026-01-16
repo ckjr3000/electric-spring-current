@@ -37,7 +37,8 @@ class ProgramLoader {
                 name: data.name || null,
                 date: data.date || null,
                 place: data.place || null,
-                hour: data.hour || null
+                hour: data.hour || null,
+                cost: data.cost || null
             };
         } catch (error) {
             console.error(`Error loading artist info ${artistId}:`, error);
@@ -87,16 +88,25 @@ class ProgramLoader {
                 sortedArtists.forEach(artist => {
                     if(!artist.name) return;
 
-                    // Add class based on type (installation or non-installation)
-                    const typeClass = artist.type && artist.type.toLowerCase() === 'installation' 
+                    // Add class based on type (installation or non-installation or float or ccl)
+                    let typeClass = artist.type && artist.type.toLowerCase() === 'installation' 
                         ? 'program-performance-installation' 
                         : 'program-performance-event';
+
+                    typeClass = artist.type && artist.type.toLowerCase() === 'symposium' 
+                        ? 'program-performance-symposium' 
+                        : typeClass;
+            
+                    typeClass = artist.type && artist.type.toLowerCase() === 'float' 
+                        ? 'program-performance-float' 
+                        : typeClass;
                     
                     html += `<div class="program-performance ${typeClass}">\n`;
                     
                     if (artist.hour) { // Time
                         html += `<div class="program-installation">${artist.type}\n`;
                         html += `<div class="program-time"> ${artist.hour}</div>\n`;
+                        html += `<div class="program-cost"> ${artist.cost}</div>\n`;
                         html += '</div>\n';
                     }
                     

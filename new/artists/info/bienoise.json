@@ -1,6 +1,7 @@
 {
     "show" : "Failure as Goal",
     "subtitle" : null,
+    "cost": "free event",
     "name" : "Bienoise",
     "type" : "Concert - 2nd part",
     "date" : "18 February",

@@ -1,6 +1,7 @@
 {
     "show" : "Professor Chill Live",
     "subtitle" : null,
+    "cost": "free event",
     "name" : "Professor Chill",
     "type" : "Concert - 2nd part",
     "date" : "19 February",

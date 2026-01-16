@@ -383,9 +383,7 @@ nav ul li a.active:hover {
   transition: background-color 0.2s ease;
 }
 
-.program-performance:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-}
+
 
 .program-time {
   font-family: "Bebas Neue", sans-serif;
@@ -402,6 +400,15 @@ nav ul li a.active:hover {
   color: #000000;
   min-width: 80px;
   flex-shrink: 0;
+}
+
+.program-cost{
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.7rem;
+  color: #000000;
+  min-width: 80px;
+  flex-shrink: 0;
+  text-align: left;
 }
 
 .program-details {
@@ -916,16 +923,22 @@ a.event-link:hover {
   border-left: 4px solid #333333;
 }
 
-.program-performance-installation:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-}
 
 /* Non-installation events - different color (e.g., yellow tint) */
 .program-performance-event {
   background-color: rgba(255, 255, 0, 0.5); /* Light yellow */
-  border-left: 4px solid #ffdd00; /* Yellow border */
+  border-left: 4px solid #000000; /* Yellow border */
 }
 
-.program-performance-event:hover {
-  background-color: rgba(255, 255, 0, 0.25); /* Darker yellow on hover */
+/* Symposium event */
+.program-performance-symposium {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left: 4px solid #333333;
 }
+
+.program-performance-symposium {
+  background-color: rgba(206, 210, 167, 0.5); /* Light yellow */
+  border-left: 4px solid #000000; /* Yellow border */
+}
+
+

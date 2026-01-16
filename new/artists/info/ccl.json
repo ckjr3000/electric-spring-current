@@ -1,0 +1,16 @@
+{
+    "show" : "Creative Coding Lab Symposium",
+    "subtitle" : null,
+    "cost": "free event",
+    "name" : "CCL",
+    "type" : "Symposium",
+    "date" : "21 February",
+    "place" : "Richard Steinitz Building (RSG/01)",
+    "hour" : "12:00-17:00",
+    "link1" : "https://www.youtube.com/playlist?list=PLnr5LpGO6hU2J2bBUp0X8oWljZpI4-QGZ",
+    "type_link1" : "youtube",
+    "link2" : null,
+    "type_link2" : null,
+    "description" : "Creative coders share the ways in which they approach technical and artistic issues, and the way they link the two together. <br><br> Electric Spring hosts the eighth annual Creative Coding Lab Symposium. The annual symposium is a chance for us to bring our discussion of creative coding to the public, and to present an in-depth set of guest talks about music and other creative endeavours involving computers and code. <br><br> The symposium takes the form of a set of talks from invited speakers about their creative work with audio programming, representing a range of audio programming languages, artistic practices, and domains of practice. Each speaker will talk for around 45 minutes about their work, with the opportunity for attendees to ask questions after each talk.",
+    "bio" : null
+}

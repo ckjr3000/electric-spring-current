@@ -1,6 +1,7 @@
 {
     "show" : null,
     "subtitle" : null,
+    "cost": "free event",
     "name" : null,
     "type" : "Installation",
     "date" : null,

@@ -1,0 +1,18 @@
+{
+    "day 1" : {
+        "date" : "18 February 2026",
+        "artists": ["colbert", "holly", "danai", "ellie",  "bienoise"]
+    }, 
+    "day 2" : {
+        "date" : "19 February 2026",
+        "artists": ["colbert", "holly", "danai", "anneke", "chill", "blush"]
+    }, 
+     "day 3" : {
+        "date" : "20 February 2026",
+        "artists": ["colbert", "holly", "danai", "edges", "sveid"]
+    }, 
+     "day 4" : {
+        "date" : "21 February 2026",
+        "artists": ["colbert", "holly", "danai", "hearing", "mariam"]
+    }
+}

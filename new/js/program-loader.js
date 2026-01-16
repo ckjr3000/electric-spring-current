@@ -87,11 +87,16 @@ class ProgramLoader {
                 sortedArtists.forEach(artist => {
                     if(!artist.name) return;
 
-                    html += '<div class="program-performance">\n';
+                    // Add class based on type (installation or non-installation)
+                    const typeClass = artist.type && artist.type.toLowerCase() === 'installation' 
+                        ? 'program-performance-installation' 
+                        : 'program-performance-event';
+                    
+                    html += `<div class="program-performance ${typeClass}">\n`;
                     
                     if (artist.hour) { // Time
                         html += `<div class="program-installation">${artist.type}\n`;
-                        html += `<div class="program-time"> <span style="font-size: 0.5em;">h.</span> ${artist.hour}</div>\n`;
+                        html += `<div class="program-time"> ${artist.hour}</div>\n`;
                         html += '</div>\n';
                     }
                     

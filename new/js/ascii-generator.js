@@ -56,8 +56,8 @@ class ASCIIArtGenerator {
     }
 
     calculateASCIIDimensions() {
-        const cols = Math.floor(window.innerWidth / this.charWidth);
-        const rows = Math.floor(window.innerHeight / this.charHeight);
+        const cols = this.viewportCols;
+        const rows = this.viewportRows;
         return { width: cols, height: rows };
     }
 
@@ -115,10 +115,38 @@ class ASCIIArtGenerator {
         const fontSize = parseFloat(computedStyle.fontSize);
         const lineHeight = parseFloat(computedStyle.lineHeight) || fontSize;
         
-        const charWidth = fontSize * 0.6;
+        // Measure actual character width
+        const measureElement = document.createElement('span');
+        measureElement.style.font = computedStyle.font;
+        measureElement.style.fontSize = computedStyle.fontSize;
+        measureElement.style.fontFamily = computedStyle.fontFamily;
+        measureElement.style.visibility = 'hidden';
+        measureElement.style.position = 'absolute';
+        measureElement.style.whiteSpace = 'pre';
+        measureElement.textContent = '@';
+        document.body.appendChild(measureElement);
         
-        this.viewportCols = Math.floor(window.innerWidth / charWidth);
-        this.viewportRows = Math.floor(window.innerHeight / lineHeight);
+        const rect = measureElement.getBoundingClientRect();
+        const actualCharWidth = rect.width;
+        const actualCharHeight = rect.height;
+        
+        document.body.removeChild(measureElement);
+        
+        // Use measured character dimensions
+        this.charWidth = actualCharWidth > 0 ? actualCharWidth : fontSize * 0.6;
+        this.charHeight = actualCharHeight > 0 ? actualCharHeight : lineHeight;
+        
+        this.viewportCols = Math.floor(window.innerWidth / this.charWidth);
+        this.viewportRows = Math.floor(window.innerHeight / this.charHeight);
+        
+        console.log('Viewport:', {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            charWidth: this.charWidth,
+            charHeight: this.charHeight,
+            cols: this.viewportCols,
+            rows: this.viewportRows
+        });
     }
 
     imageDataToASCII(imageData) {

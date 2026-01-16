@@ -277,6 +277,7 @@ nav ul li a.active:hover {
 
 .artist-header {
   margin-bottom: 25px;
+  text-align: left; 
 }
 
 .artist-header h2 {
@@ -455,6 +456,7 @@ nav ul li a.active:hover {
   margin: 5px 0;
   color: #444444;
   font-size: 1.7rem;
+  text-align: left; 
 }
 
 .program-venue {
@@ -539,6 +541,7 @@ a.event-link:hover {
 
 .event-header {
   margin-bottom: 0px;
+  text-align: left; 
 }
 
 /* Both h2 elements in event-header should be 1.7rem */
@@ -550,6 +553,7 @@ a.event-link:hover {
 
 .event-header p {
     margin: 0;
+    text-align: left; 
 }
 
 .event-info-section {
@@ -731,9 +735,9 @@ a.event-link:hover {
     font-size: 1rem;
   }
   
-  /* Artists page mobile adjustments */
   .artist-header h2 {
     font-size: 2rem;
+    text-align: left; 
   }
   
   .artist-info-section {
@@ -790,7 +794,8 @@ a.event-link:hover {
     }
 
 .event-header p {
-  margin-top: 0!important; /* Add this line to remove top margin from the paragraph */
+  margin-top: 0!important; 
+  
 }
 
 .event-info-section {

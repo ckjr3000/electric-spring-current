@@ -4,17 +4,17 @@
 const CONFIG = {
     artists: [
         'bienoise',
-        'anneke',
-        'blush',
+        'brass',
+        'greenaway',
         'chill',
-        'ellie',
+        'fearne',
         'hearing',
-        'mariam',
+        'gviniashvili',
         'edges',
         'sveid',
         'colbert',
-        'holly',
-        'danai',
+        'knaggs',
+        'belosinof',
         'ccl',
         'float1',
         'float2'

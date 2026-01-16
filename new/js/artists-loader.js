@@ -1,4 +1,4 @@
-// Artists page loader - shows only artist bios (alphabetically sorted)
+// Artists page loader
 class ArtistsLoader {
     constructor() {
         this.artistsData = [];

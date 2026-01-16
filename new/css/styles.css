@@ -941,4 +941,22 @@ a.event-link:hover {
   border-left: 4px solid #000000; /* Yellow border */
 }
 
+.email{
+  color: #ffff00;
+  background-color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8em;
+  padding: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.email:hover{
+  background-color: rgba(255, 255, 255, 1);
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  color: rgb(0, 0, 0);
+}
+
+
+
 

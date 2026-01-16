@@ -54,7 +54,7 @@ class EventsLoader {
         }
 
         let html = '<h1>EVENTS</h1>\n';
-        html += '<p class="events-intro">Live performances and installations at Electric Spring Festival 2026</p>\n\n';
+        html += '<p class="events-intro">Live performances and installations at Electric Spring Festival 2026 </p>\n\n';
 
         this.eventsData.forEach((event) => {
             if(!event.name) return;

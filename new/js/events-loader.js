@@ -60,22 +60,22 @@ class EventsLoader {
 
             html += `<div class="event-entry" id="event-${event.id}">\n`;
             
-            // Event header (Show name or Artist name)
-            html += '  <div class="event-header">\n';
-            if (event.show) {
-                html += `    <h2>${event.show}</h2>\n`;
-                html += `    <h2><a href="#" class="event-artist-name artist-link" data-artist="${event.id}">${event.name}</a></h2>\n`;
-
-            } else {
-                html += `    <h2>${event.name}</h2>\n`;
-            }
-            html += '  </div>\n';
+  // Event header (Show name or Artist name)
+html += '  <div class="event-header">\n';
+if (event.show) {
+    html += `    <h2 class="program-show">${event.show}</h2>\n`;
+    html += `    <p><a href="#" class="artist-link" data-artist="${event.id}">${event.name}</a></p>\n`;
+}
+html += '  </div>\n';
             
             // Event info section
             html += '  <div class="event-info-section">\n';
 
             // Performance details box
             html += '    <div class="event-performance-details">\n';
+             if (event.type) {
+                html += `      <p><strong>Event type:</strong> ${event.type}</p>\n`;
+            }
             if (event.date) {
                 html += `      <p><strong>Date:</strong> ${event.date}</p>\n`;
             }
@@ -87,8 +87,7 @@ class EventsLoader {
             }
             html += '    </div>\n';
 
-                        // Artist Image
-            if (event.imagePath) {
+     if (event.imagePath) {
                 html += `    <div class="artist-image-container">\n`;
                 html += `      <img src="${event.imagePath}" alt="${event.name}" class="artist-image" onerror="this.style.display='none'">\n`;
                 html += `    </div>\n`;
@@ -98,6 +97,9 @@ class EventsLoader {
             if (event.description) {
                 html += `    <p class="event-description">${event.description}</p>\n`;
             }
+
+                                    // Artist Image
+       
             
             // Links
 

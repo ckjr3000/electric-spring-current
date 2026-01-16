@@ -79,11 +79,11 @@ class ArtistsLoader {
             // Links
             if (artist.link1 || artist.link2) {
                 html += '    <div class="artist-links">\n';
-                if (artist.link1) {
-                    html += `      <a href="${artist.link1}" target="_blank" rel="noopener noreferrer">link</a>\n`;
+                if (artist.link1 && artist.type_link1) {
+                    html += `      <a href="${artist.link1}" target="_blank" rel="noopener noreferrer">${artist.type_link1}</a>\n`;
                 }
-                if (artist.link2) {
-                    html += `      <a href="${artist.link2}" target="_blank" rel="noopener noreferrer">link</a>\n`;
+                if (artist.link2 && artist.type_link2) {
+                    html += `      <a href="${artist.link2}" target="_blank" rel="noopener noreferrer">${artist.type_link2}</a>\n`;
                 }
                 html += '    </div>\n';
             }

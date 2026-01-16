@@ -601,6 +601,14 @@ a.event-link:hover {
   .page-content {
     padding: 35px 50px;
   }
+  .fixed-title {
+        margin-top: -1.7rem;
+  }
+      .title-line {
+        font-size: 8rem;
+        padding: 0.1rem 0.5rem;
+        letter-spacing: 0.3rem;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -616,6 +624,19 @@ a.event-link:hover {
   #page-content-inner h2 {
     font-size: 1.7rem;
   }
+  .page-container {
+    padding: 5% 5% 0% 5%;
+    padding-top: calc(25px + 5%);
+  }
+  .fixed-title {
+        margin-top: -1.3rem;
+  }
+    .title-line {
+        font-size: 8rem;
+        padding: 0.1rem 0.5rem;
+        letter-spacing: 0.3rem;
+    }
+  
 }
 
 @media (max-width: 1024px) {
@@ -629,6 +650,20 @@ a.event-link:hover {
     padding: 30px 40px;
     /* max-width: 700px; */
   }
+  .page-container {
+    padding: 5% 5% 0% 5%;
+    padding-top: calc(25px + 5%);
+  }
+  .fixed-title {
+        margin-top: -1.7rem;
+  }
+  .title-line {
+        font-size: 8rem;
+        padding: 0.1rem 0.5rem;
+        letter-spacing: 0.3rem;
+    }
+    
+  
 }
 
 
@@ -673,9 +708,8 @@ a.event-link:hover {
     padding-top: 25px;
   }
   
-  /* Page container - Add top padding */
   .page-container {
-    padding: 5%;
+    padding: 5% 5% 0% 5%;
     padding-top: calc(25px + 5%);
   }
   
@@ -805,11 +839,9 @@ a.event-link:hover {
   }
 }
 
-/* Add this to your styles.css */
-
 .fixed-title {
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Bebas Neue', sans-serif;
@@ -820,7 +852,7 @@ a.event-link:hover {
 }
 
 .title-line {
-    font-size: 13rem;
+    font-size: 10rem;
     font-weight: bold;
     color: #000;
     background: rgba(255, 255, 255, 0);
@@ -835,6 +867,12 @@ a.event-link:hover {
     background: rgba(255, 255, 255, 0);
     letter-spacing: 0.2rem;
     line-height: 0.8;
+}
+
+@media (max-height: 768px){
+  .title-line {
+    font-size: 8rem;
+  }
 }
 
 @media (max-width: 768px) {

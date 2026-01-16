@@ -292,7 +292,7 @@ nav ul li a.active:hover {
 }
 
 .artist-info-section {
-  margin-left: 40px;
+  margin-left: 0px;
 }
 
 .artist-performance-details {
@@ -737,7 +737,7 @@ a.event-link:hover {
   }
   
   .artist-info-section {
-    margin-left: 20px;
+    margin-left: 0px;
   }
   
   .artist-description {

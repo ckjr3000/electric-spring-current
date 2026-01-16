@@ -98,7 +98,7 @@ class ProgramLoader {
                         ? 'program-performance-symposium' 
                         : typeClass;
             
-                    typeClass = artist.type && artist.type.toLowerCase() === 'float' 
+                    typeClass = artist.type && artist.type.toLowerCase() === 'concert - late night' 
                         ? 'program-performance-float' 
                         : typeClass;
                     

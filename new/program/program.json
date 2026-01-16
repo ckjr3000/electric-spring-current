@@ -9,10 +9,10 @@
     }, 
      "day 3" : {
         "date" : "20 February 2026",
-        "artists": ["colbert", "holly", "danai", "edges", "sveid"]
+        "artists": ["colbert", "holly", "danai", "edges", "sveid", "float1"]
     }, 
      "day 4" : {
         "date" : "21 February 2026",
-        "artists": ["ccl","colbert", "holly", "danai", "hearing", "mariam"]
+        "artists": ["ccl","colbert", "holly", "danai", "hearing", "mariam", "float2"]
     }
 }

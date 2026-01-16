@@ -41,6 +41,7 @@ class ArtistsLoader {
     }
 
     generateArtistsHTML() {
+        let flagFloat = false;
         if (!this.artistsData || this.artistsData.length === 0) {
             return '<h1>ARTISTS</h1><p>Unable to load artist information.</p>';
         }
@@ -49,8 +50,13 @@ class ArtistsLoader {
         html += '<p class="artists-intro">Artists performing at Electric Spring Festival 2026</p>\n\n';
 
         this.artistsData.forEach((artist) => {
+            
+            if(!artist.name || !artist.bio ) return;
 
-            if(!artist.name || !artist.bio) return;
+            if(artist.name === "Float"){
+                if(flagFloat) return;
+                flagFloat = true;
+            }
             
             html += `<div class="artist-entry" id="artist-${artist.id}">\n`;
             

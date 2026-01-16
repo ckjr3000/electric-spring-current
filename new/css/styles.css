@@ -923,7 +923,6 @@ a.event-link:hover {
   border-left: 4px solid #333333;
 }
 
-
 /* Non-installation events - different color (e.g., yellow tint) */
 .program-performance-event {
   background-color: rgba(255, 255, 0, 0.5); /* Light yellow */
@@ -932,12 +931,13 @@ a.event-link:hover {
 
 /* Symposium event */
 .program-performance-symposium {
-  background-color: rgba(0, 0, 0, 0.03);
-  border-left: 4px solid #333333;
+  background-color: rgba(206, 210, 167, 0.5); /* Light yellow */
+  border-left: 4px solid #000000; /* Yellow border */
 }
 
-.program-performance-symposium {
-  background-color: rgba(206, 210, 167, 0.5); /* Light yellow */
+/* Float event */
+.program-performance-float {
+  background-color: rgba(160, 109, 182, 0.5); /* Light yellow */
   border-left: 4px solid #000000; /* Yellow border */
 }
 

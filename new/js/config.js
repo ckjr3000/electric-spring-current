@@ -16,7 +16,8 @@ const CONFIG = {
         'holly',
         'danai',
         'ccl',
-        'float'
+        'float1',
+        'float2'
     ].sort(),
     artistsImagesPath: 'artists/images/',
     artistsInfoPath: 'artists/info/'

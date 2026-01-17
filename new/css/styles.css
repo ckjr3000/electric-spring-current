@@ -196,7 +196,7 @@ nav ul li a.active:hover {
 
 .page-content {
   background-color: rgb(255, 255, 255);
-  padding: 1em 1em;
+  padding: 1em 1em 100px;
   max-width: 1080px;
   width: 100%;
   height: 100%;
@@ -220,7 +220,7 @@ nav ul li a.active:hover {
   color: #333333;
   border-bottom: 3px solid #333333;
   padding-bottom: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   font-family: "Bebas Neue", sans-serif;
 }
 
@@ -260,7 +260,7 @@ nav ul li a.active:hover {
    ============================================ */
 .artists-intro {
   font-size: 1.2rem;
-  margin-bottom: 30px;
+  margin-bottom: 30px!important;
 }
 
 .artist-entry {
@@ -526,7 +526,7 @@ a.event-link:hover {
    ============================================ */
 .events-intro {
   font-size: 1.2rem;
-  margin-bottom: 40px;
+  margin-bottom: 30px!important;
 }
 
 .event-entry {
@@ -564,6 +564,8 @@ a.event-link:hover {
   background-color: rgba(0, 0, 0, 0.05);
   padding: 15px;
   margin-bottom: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
   border-left: 4px solid #333333;
 }
 
@@ -633,7 +635,7 @@ a.event-link:hover {
     font-size: 1.6rem;
   }
   .page-content {
-    padding: 35px 50px;
+    padding: 35px 50px 100px;
   }
   .fixed-title {
         margin-top: -1.7rem;
@@ -681,7 +683,7 @@ a.event-link:hover {
     font-size: 1.3rem;
   }
   .page-content {
-    padding: 30px 40px;
+    padding: 30px 40px 100px;
     /* max-width: 700px; */
   }
   .page-container {
@@ -716,7 +718,7 @@ a.event-link:hover {
   }
   
   .page-content {
-    padding: 25px 30px;
+    padding: 25px 30px 100px;
   }
   
   #date-overlay {
@@ -800,6 +802,7 @@ a.event-link:hover {
 
 .event-info-section {
   margin-left: 0px;
+  text-align: left;
 }
 
 .event-description {
@@ -829,7 +832,7 @@ a.event-link:hover {
     font-size: 0.9rem;
   }
   .page-content {
-    padding: 20px;
+    padding: 20px 20px 100px;
   }
   #page-content-inner h1 {
     font-size: 1.5rem;

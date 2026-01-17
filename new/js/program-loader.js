@@ -57,7 +57,7 @@ class ProgramLoader {
         }
 
         let html = '<h1>PROGRAM</h1>\n';
-        html += '<p class="program-intro">Happy Birthday to us! <br> <br> It is the 30th edition of the Electric Spring Festival this year, so why not celebrate with us? Spread over 4 days and nights at venues in Huddersfield, come and enjoy music at the cutting edge. <br><br> As in the previous 29 editions of the festival, we\'ve got an eclectic mix of aural / visual delights for you from an international cast of musicians and performers. Whether you\'re into modular synths or massed electric guitars, or you prefer to sit and be absorbed by some installations, we\'ve got something for you. Dive into the programme for more details...<br><br></p>\n\n';
+        html += '<p class="program-intro">Happy Birthday to us! <br> <br> It is the 30th edition of the Electric Spring Festival this year, so why not celebrate with us? Spread over 4 days and nights at venues in Huddersfield, come and enjoy music at the cutting edge. <br><br> As in the previous 29 editions of the festival, we\'ve got an eclectic mix of aural / visual delights for you from an international cast of musicians and performers. Whether you\'re into modular synths or massed electric guitars, or you prefer to sit and be absorbed by some installations, we\'ve got something for you. Dive into the Programme for more details...<br><br></p>\n\n';
 
         // Iterate through each day
         for (const [dayKey, dayData] of Object.entries(this.programData)) {

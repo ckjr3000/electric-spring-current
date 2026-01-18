@@ -120,7 +120,7 @@ nav ul li a {
   color: rgb(255, 255, 0);
   background-color: rgba(0, 0, 0, 1);
   text-align: center;
-  padding: 0.5em 1em;
+  /* padding: 0.5em 1em; */
   text-decoration: none;
   font-family: "Bebas Neue", sans-serif;
   cursor: pointer;
@@ -819,8 +819,8 @@ a.event-link:hover {
     font-size: 1rem;
   }
   nav ul li a {
-    padding: 0.4em 0.8em;
-    font-size: 1.2rem !important;
+    padding: 0.4em;
+    font-size: 1.4rem !important;
     text-align: center!important;
   }
 }

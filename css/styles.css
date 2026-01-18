@@ -464,6 +464,7 @@ nav ul li a.active:hover {
   margin: 5px 0;
   color: #666666;
   font-size: 0.95rem;
+  text-align: left;
 }
 
 .program-no-events {

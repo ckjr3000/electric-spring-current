@@ -1,5 +1,5 @@
 {
-    "show" : "TBC",
+    "show" : "Ocean Umwelten",
     "subtitle" : null,
     "cost": "free event",
     "name" : "Holly Knaggs",
@@ -7,8 +7,9 @@
     "date" : "18-21 February",
     "place" : "Richard Steinitz Building",
     "hour" : "17:00-19:00",
-    "link1" : null,
+    "link1" : "https://www.instagram.com/garliggg/ ",
+    "type_link1" : "instagram",
     "link2" : null,
-    "description" : "TBC",
-    "bio" : "TBC"
+    "description" : "Explore the hidden world of underwater animals. This installation draws upon the sensory experiences of jellyfish, whales, mantis shrimp and mackerel beyond human perception. It is an expression of their inner life, how they detect changes in their environment and navigate the ocean landscape. Ocean Umwelten is a multi-sensory experience that takes you from the jellyfish's nerve net to the shrimp's complex eyes, the whale's call to mackerel's detection of changes in water pressure. Composed and designed by Holly Knaggs, collaboratively produced with Charlie Elliott. ",
+    "bio" : "Composer and performer studying at the University of Huddersfield. Musical noodling, blowing down the shiny thing, playing with effects, listening to the world around us, becoming a mirror, becoming a microphone. Influenced by the contemporary classical movement’s unpredictability in the 21st century. "
 }

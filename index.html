@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Electric Spring Festival</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/accordian.css" />
-  </head>
-  <body>
-      <main>
-          <h1 id="main-title">Electric <br> Spring <br> Festival</h1>
-          <h2 id="subheading">18-21 February 2026</h2>
-          <p>Programme coming soon<a href="/new/">..</a></p>
-     </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electric Spring Festival</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main>
+    <!-- Nav bar -->
+    <nav>
+      <ul>
+        <li><a href="#" class="nav-link" data-page="program">programme</a></li>
+        <li><a href="#" class="nav-link" data-page="events">events</a></li>
+        <li><a href="#" class="nav-link" data-page="artists">artists</a></li>
+        <li><a href="#" class="nav-link" data-page="about">about</a></li>
+      </ul>
+    </nav>
+
+    <!-- ascii : background ascii art  -->
+    <pre id="ascii-output"> </pre>
+    <!-- Fixed title display -->
+<div id="fixed-title" class="fixed-title">
+    <div class="title-line">ELECTRIC</div>
+    <div class="title-line">SPRING</div>
+    <div class="title-line">FESTIVAL</div>
+    <div class="date-line">18-21 FEB 2026</div>
+</div>
+
+
+    <!-- Page container -->
+    <div id="page-container" class="page-container">
+      <div class="page-content">
+        <div id="page-content-inner"></div>
+      </div>
+    </div>
+
+  </main>
+
+    <script src="js/config.js"></script> <!-- config file with artists names -->
+    <script src="js/letter-patterns.js"></script> <!-- letter pattern generator -->
+    <script src="js/ascii-generator.js"></script> <!-- generate ascii art background -->
+    <script src="js/artists-loader.js"></script>  <!-- load artists page -->
+    <script src="js/events-loader.js"></script>   <!-- load events page -->
+    <script src="js/program-loader.js"></script>  <!-- load program page -->
+    <script src="js/about-loader.js"></script>    <!-- load about page -->
+    <script src="js/navigation.js"></script>      <!-- deal with nav -->
+
+</body>
 </html>

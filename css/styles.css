@@ -80,7 +80,7 @@ main {
 nav ul li a,
 nav ul li a.nav-link {
   font-size: 1.4rem;
-  /* padding: 0.5em 1em; */
+  padding: 0.5em;
   width: 100%;
   text-align: center;
   display: block;

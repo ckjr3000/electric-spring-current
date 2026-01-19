@@ -713,6 +713,9 @@ a.event-link:hover {
     font-size: 0.52em;
     padding-top: 25px;
   }
+  .event-entry {
+  text-align: left;
+}
   
   .page-container {
     padding: 5% 5% 0% 5%;
@@ -746,6 +749,7 @@ a.event-link:hover {
   
   .artist-info-section {
     margin-left: 0px;
+    text-align: left; 
   }
   
   .artist-description {
@@ -781,6 +785,7 @@ a.event-link:hover {
   /* About page mobile adjustments */
   .about-content {
     margin-left: 0px;
+    text-align: left; 
   }
   
   .about-intro {

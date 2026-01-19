@@ -262,6 +262,7 @@ nav ul li a.active:hover {
 .artists-intro {
   font-size: 1.2rem;
   margin-bottom: 30px!important;
+   text-align: left;
 }
 
 .artist-entry {
@@ -529,6 +530,7 @@ a.event-link:hover {
 .events-intro {
   font-size: 1.2rem;
   margin-bottom: 30px!important;
+  text-align: left;
 }
 
 .event-entry {

@@ -40,6 +40,9 @@ class AboutLoader {
                 html += `  <p class="about-section">${trimmed}</p>\n`;
             }
         });
+
+        html += '<img src="/assets/hiss-logo.png" class="logo-image">';
+        html += '<img src="/assets/cerenem-logo.jpg" class="logo-image">';
         
         html += '</div>\n';
 

@@ -41,8 +41,17 @@ class AboutLoader {
             }
         });
 
-        html += '<img src="/assets/hiss-logo.png" class="logo-image">';
-        html += '<img src="/assets/cerenem-logo.jpg" class="logo-image">';
+        html += '<table style="width:100%">';
+
+            html += '<tr>';
+                html += '<td class="image-container"><img src="/assets/uni-logo.png" class="logo-image"></td>';
+                html += '<td class="image-container"><img src="/assets/hiss-logo.png" class="logo-image"></td>';
+                html += '<td class="image-container"><img src="/assets/cerenem-logo.jpg" class="logo-image"></td>';
+                html += '<td class="image-container"><img src="/assets/float.jpg" class="logo-image"></td>';
+            html += '</tr>';
+        html += '</table>';
+
+    
         
         html += '</div>\n';
 

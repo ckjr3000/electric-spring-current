@@ -1,16 +1,16 @@
 {
-    "show" : "Float Presents... 1",
+    "show" : "Float Late Concert #1",
     "subtitle" : null,
     "cost": "£8 (single day) <br> £14 (two days)",
-    "name" : "Float",
+    "name" : "Ryoko Akama & Khabat Abas / W.H.Y / Shit Creek",
     "type" : "Concert - late night",
     "date" : "20 February",
     "place" : "Hive Co-op Cafe",
     "hour" : "21:00-23:00",
-    "link1" : "https://www.ticketsource.co.uk/float",
+    "link1" : "https://floathudd.com/_content/concerts/es-lates-26/",
     "type_link1" : "tickets",
     "link2" : "https://floathudd.com",
     "type_link2" : "website",
-    "description" : "Sets from: <br> &nbsp;&nbsp;&nbsp;Ryoko Akama/Khabat Abas <br> &nbsp;&nbsp;&nbsp;Zara Truss Giles (W.H.Y) <br> &nbsp;&nbsp;&nbsp;Shitt Creek",
-    "bio" : "An open collective for anyone who identifies as queer or as belonging to a marginalised gender interested in creative technology. We meet on the 5th of every month, 17.30 - 19.30, at various venues in Huddersfield. Meet ups usually include some kind of activity, e.g a presentation, skill share, small performance or themed discussion. We are always on the lookout for new members! Whether you're interested in creative coding, game development, digital art, or anything else under the banner of 'creative technology', please feel free to come along."
+    "description" : "Ryoko Akama & Khabat Abas: <br><br> This performance is a new experiment being developed by Khabat Abas and Ryoko Akama with Cello, cassette tapes, objects and electronic devices. <br><br>W.H.Y: <br><br> An experimental live a/v performance integrating the use of video synthesisers, archival footage, dronescapes and synthesised techno beats, combined with vocals referencing horror, satire and rage. <br><br> Shit Creek: <br><br> One-person wrestling match vs. overheating laptop. Sample sculptures falling over constantly. Dry drunk psychedelia. A wasp trying to sting a phantom hangover.",
+    "bio" : null
 }

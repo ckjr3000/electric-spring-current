@@ -1,16 +1,16 @@
 {
-    "show" : "Float Presents... 2",
+    "show" : "Float Late Concert #2",
     "subtitle" : null,
     "cost": "£8 (single day) <br> £14 (two days)",
-    "name" : "Float",
+    "name" : "Fux Interior / Leibniz / Fashion Tips / Wire Mothers",
     "type" : "Concert - late night",
     "date" : "21 February",
     "place" : "Hive Co-op Cafe",
     "hour" : "21:00-23:00",
-    "link1" : "https://www.ticketsource.co.uk/float",
+    "link1" : "https://floathudd.com/_content/concerts/es-lates-26/",
     "type_link1" : "tickets",
     "link2" : "https://floathudd.com",
     "type_link2" : "website",
-    "description" : "Sets from: <br> &nbsp;&nbsp;&nbsp; fux interior <br> &nbsp;&nbsp;&nbsp; leibniz <br> &nbsp;&nbsp;&nbsp; fashion tips <br> &nbsp;&nbsp;&nbsp; wire mothers",
-    "bio" : "An open collective for anyone who identifies as queer or as belonging to a marginalised gender interested in creative technology. <br><br> We meet on the 5th of every month, 17.30 - 19.30, at various venues in Huddersfield. <br><br> Meet ups usually include some kind of activity, e.g a presentation, skill share, small performance or themed discussion. <br><br> We are always on the lookout for new members! Whether you're interested in creative coding, game development, digital art, or anything else under the banner of 'creative technology', please feel free to come along."
+    "description" : "Fux Interior <br> Cathartic guitar mega drone. <br><br> Leibniz <br> Legendary Brighton Queercore. <br><br> Fashion Tips <br> Riot grrrl dance punk electro sass. <br><br> Wire Mothers <br> Wretched music called forth from the wastes.",
+    "bio" : null
 }

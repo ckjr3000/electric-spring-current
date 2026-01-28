@@ -15,7 +15,7 @@ class EventsLoader {
                 return null;
             }
             const data = await response.json();
-            if(artistId == "float2") artistId = "float1";
+            // if(artistId == "float2") artistId = "float1";
             data.id = artistId;
             data.imagePath = `${this.artistsImagesPath}${artistId}.jpg`;
             return data;

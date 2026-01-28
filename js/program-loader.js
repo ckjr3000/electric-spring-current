@@ -28,7 +28,7 @@ class ProgramLoader {
                 return null;
             }
             const data = await response.json();
-            if(artistId == "float2") artistId = "float1";
+            // if(artistId == "float2") artistId = "float1";
 
             // Return the fields we need for the program + artist ID for linking
             return {

@@ -557,7 +557,8 @@ a.event-link:hover {
 .events-intro {
   font-size: 1.2rem;
   margin-bottom: 30px!important;
-  text-align: left;
+
+  text-align: justify;
 }
 
 .event-entry {
@@ -744,6 +745,10 @@ a.event-link:hover {
   .event-entry {
   text-align: left;
 }
+  .events-intro {
+
+    text-align: left;
+  }
   
   .page-container {
     padding: 5% 5% 0% 5%;

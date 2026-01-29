@@ -57,8 +57,6 @@ class EventsLoader {
         html += '<p class="events-intro">Live performances and installations at Electric Spring Festival 2026. </p>\n\n';
         html += '<p class="events-intro">As each evening\'s concert opens, the audience will walk in and take their seats to the accompaniment of a recorded piece by improvising musicians, Baleine, who are: Hannah Brady - woodwind and electronics; Manon McCoy - harp and electronics; Jez Matthews - synthesisers; and Will Shaw - percussion and electronics. The live performance was recorded, both directly from the desk by Emma Lambert and through a high-order ambisonic microphone by Peter Brooks and has been mixed and spatialised by Brooks for this playback on the Huddersfield Immersive Sound System (HISS) for Electric Spring 2026.</p>\n\n';
 
-    
-
         this.eventsData.forEach((event) => {
             if(!event.name) return;
 

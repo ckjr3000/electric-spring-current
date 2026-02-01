@@ -17,7 +17,8 @@ const CONFIG = {
         'belosinof',
         'ccl',
         'float1',
-        'float2'
+        'float2',
+        'truax'
     ].sort(),
     artistsImagesPath: 'artists/images/',
     artistsInfoPath: 'artists/info/'

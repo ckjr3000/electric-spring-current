@@ -789,8 +789,6 @@ a.event-link:hover {
     font-size: 1.1rem;
   }
   
-  
-  /* Program page mobile adjustments */
   .program-day-header {
     flex-direction: column;
     gap: 5px;
